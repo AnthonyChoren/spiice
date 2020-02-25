@@ -2,7 +2,9 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <!-- ICON https://github.com/Remix-Design/remixicon#usage    https://remixicon.com -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
     <title>Spiice</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -12,9 +14,9 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <%= render 'shared/menu' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
-
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>

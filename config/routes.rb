@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  get 'request/index'
+  get 'request/show'
+  get 'request/new'
+  get 'request/create'
+  get 'request/edit'
+  get 'request/update'
+  get 'project/index'
+  get 'project/show'
+  get 'project/new'
+  get 'project/create'
+  get 'project/edit'
+  get 'project/update'
+  get 'user/index'
+  get 'user/edit'
+  get 'user/update'
+  get 'user/show'
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

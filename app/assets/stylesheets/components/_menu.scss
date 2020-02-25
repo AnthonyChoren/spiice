@@ -1,0 +1,22 @@
+.menu {
+  width: 375px;
+  height: 90px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  bottom: 24px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+}
+
+.box div {
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  padding: 20px 0;
+  font-size: 2rem;
+}
