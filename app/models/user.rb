@@ -9,10 +9,10 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :bio, presence: true, length: { maximum: 500 }
+  # validates :bio, presence: true, length: { maximum: 500 }
   validates :email, presence: true, format: { with: /\A.*@.*\.com\z/ }
   validates :phone_number, presence: true, length: { in: 8..12 }
-  validates :company, presence: true
+  # validates :company, presence: true
   validates :city, presence: true
-  validates :country, presence: true
+  # validates :country, presence: true
 end
