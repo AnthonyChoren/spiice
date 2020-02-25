@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :user
-  has_many :requests dependent: :destroy
+  has_many :requests, dependent: :destroy
   validates :title, presence: true
   validates :descripton, presence: true
   validates :start, presence: true, numericality: true
