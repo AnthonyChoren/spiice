@@ -25,8 +25,8 @@ b.save
 c.save
 d.save
 
-e = Project.new(user_id: 1, title:"Project of Mr a", description:"a super cool project, lots of fun ", price: 200, progress: "pending")
-f =Project.new(user_id: 2, title:"Project of Mr b", description:"an awesome project, many things to do ", price: 350, progress: "pending")
+e = Project.new(user_id: User.first, title:"Project of Mr a", description:"a super cool project, lots of fun ", price: 200, progress: "pending")
+f =Project.new(user_id: user.first(2).last, title:"Project of Mr b", description:"an awesome project, many things to do ", price: 350, progress: "pending")
 e.save!
 f.save
 
