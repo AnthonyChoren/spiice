@@ -12,6 +12,4 @@ Rails.application.routes.draw do
     resources :projects , only: [ :index, :show ] do
       resources :requests, only: [ :show, :index, :new, :create, :edit, :update ]
   end
-
-
 end
