@@ -25,14 +25,14 @@ b.save!
 c.save!
 d.save!
 
-e = Project.new(user_id: User.first, title:"Project of Mr a", description:"a super cool project, lots of fun ", price: 200, progress: "pending", start: Date.new(2020,2,29) , deadline: Date.new(2020,4,15),)
+
+
+e = Project.new(title:"Project of Mr a", description:"a super cool project, lots of fun ", price: 200, progress: "pending", start: Date.new(2020,2,29) , deadline: Date.new(2020,4,15),)
 e.user = c
 e.save!
-f = Project.new(user_id: User.first(2).last, title:"Project of Mr b", description:"an awesome project, many things to do ", price: 350, progress: "pending", start: Date.new(2020,3,17) , deadline: Date.new(2020,5,22),)
+f = Project.new(title:"Project of Mr b", description:"an awesome project, many things to do ", price: 350, progress: "pending", start: Date.new(2020,3,17) , deadline: Date.new(2020,5,22),)
 f.user = d
 f.save!
-
-
 
 puts 'Creating categories...'
 

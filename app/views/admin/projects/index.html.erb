@@ -1,7 +1,13 @@
-<!-- <div class="card">
-  <div class="card-body">
-    <#% @projects.each do  %>
-    <p><%#= project.name %></p>
-    <#% end %>
+<div class="container">
+  <% @projects.each do |project|  %>
+  <div class="card mb-2">
+    <div class="card-body">
+      <p class="card-title"> <strong><%= project.title %></strong> </p>
+      <p class="card-text"><%= project.description %></p>
+      <p class="card-text">For a price of <%= project.price %> EUR</p>
+      <p class="card-text"><%= project.deadline %></p>
+      <%= link_to 'View details', project_path(project), class: 'btn btn-primary'  %>
+    </div>
   </div>
-</div> -->
+  <% end %>
+</div>

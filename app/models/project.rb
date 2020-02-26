@@ -6,6 +6,5 @@ class Project < ApplicationRecord
   validates :description, presence: true
   # validates :start, presence: true, numericality: true
   # validates :deadline, presence: true, numericality: true, date: { after: :start, message: 'must be after your start date' }
-  validates :price, presence: true, numericality: true
-  validates :progress, presence: true
+  validates :price, presence: true
 end
