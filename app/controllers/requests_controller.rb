@@ -8,9 +8,16 @@ class RequestController < ApplicationController
   end
 
   def new
+    # @request = Request.new
   end
 
   def create
+     # @request = Request.new
+     # @request.save
+    #   if @request.save
+    #   redirect_to project_request
+    # else
+    #   render
   end
 
   def edit
@@ -19,3 +26,4 @@ class RequestController < ApplicationController
   def update
   end
 end
+
