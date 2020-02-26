@@ -6,6 +6,7 @@
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
   position: fixed;
   bottom: 24px;
+  left: 19px;
 }
 
 .box {
@@ -15,8 +16,26 @@
 
 .box div {
   text-align: center;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   padding: 20px 0;
   font-size: 2rem;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+i {
+  color: #CDCEE4;
+}
+
+.active {
+  color: #0A385A;
+}
+
+.image-card-project {
+  width: 48px;
+  height: 48px;
+  margin: 8px;
 }

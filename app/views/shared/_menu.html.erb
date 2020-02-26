@@ -4,12 +4,12 @@
     <div class="box">
       <div>
         <%= link_to projects_path do %>
-          <i class="ri-dashboard-line"></i>
+          <i class="ri-dashboard-line <%= 'active' if current_page?(projects_path) %>"></i>
         <% end %>
       </div>
       <div>
         <%= link_to users_path do %>
-          <i class="ri-search-line"></i>
+          <i class="ri-search-line <%= 'active' if current_page?(users_path) %>"></i>
         <% end %>
       </div>
       <div>
@@ -19,7 +19,7 @@
       </div>
       <div>
         <%= link_to user_path(current_user) do %>
-          <i class="ri-account-circle-line"></i>
+          <i class="ri-account-circle-line <%= 'active' if current_page?(user_path(current_user)) %>"></i>
         <% end %>
       </div>
     </div>
