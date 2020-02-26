@@ -22,10 +22,14 @@ class Admin::ProjectsController < ApplicationController
   end
 
   def edit
-    # @project = Project.find(params[:id])
   end
 
   def update
+    if @project.update(project_params)
+      redirect_to project_path(@project)
+    else
+      render :edit
+    end
   end
 
   private
