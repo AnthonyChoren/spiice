@@ -1,7 +1,6 @@
 
 class Admin::ProjectsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update]
-  # TO DO: only: :index (nothing else !!!!!!)
+  skip_before_action :authenticate_user!, only: [:index]
   before_action :set_project, only: [:edit, :update]
   def index
     @projects = Project.all
@@ -14,7 +13,6 @@ class Admin::ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    raise
     @project.user = current_user
     if @project.save
       redirect_to project_path(@project)
