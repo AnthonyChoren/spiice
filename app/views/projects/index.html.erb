@@ -15,7 +15,7 @@
               <p class="card-text">Description :<%= project.description %></p>
               <p class="card-text">Start Time :<%= project.start %></p>
               <p class="card-text">End Time :<%= project.deadline %></p>
-              <%= link_to "Project details", project_path, class: "btn btn-primary" %>
+              <%= link_to "Project details", project_path(project), class: "btn btn-primary" %>
             </div>
         <% end %>
           <br>
