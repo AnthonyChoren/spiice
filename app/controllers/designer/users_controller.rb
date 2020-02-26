@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Designer::UsersController < ApplicationController
   before_action :set_user, only: [:user]
 
   def index
@@ -13,7 +13,4 @@ class UsersController < ApplicationController
  def set_user
   @user = User.find(params[:id])
  end
-
-
-
 end
