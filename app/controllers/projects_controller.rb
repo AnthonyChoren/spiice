@@ -1,4 +1,4 @@
-class ProjectController < ApplicationController
+class ProjectsController < ApplicationController
   def index
     @projects = Project.all
   end
@@ -18,6 +18,7 @@ class ProjectController < ApplicationController
       redirect_to project_path(@project)
     else
       render :new
+    end
   end
 
   def edit

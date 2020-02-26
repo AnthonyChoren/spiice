@@ -3,17 +3,24 @@
   <div class="menu">
     <div class="box">
       <div>
-        <i class="ri-dashboard-line"></i>
+        <%= link_to projects_path do %>
+          <i class="ri-dashboard-line"></i>
+        <% end %>
       </div>
       <div>
-        <i class="ri-search-line"></i>
+        <%= link_to users_path do %>
+          <i class="ri-search-line"></i>
+        <% end %>
       </div>
-        <div>
+      <div>
+        <%= link_to projects_path do %>
           <i class="ri-discuss-line"></i>
-        </div>
-        <div>
-           <i class="ri-account-circle-line"></i>
-        </div>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to user_path(current_user) do %>
+          <i class="ri-account-circle-line"></i>
+        <% end %>
       </div>
     </div>
   </div>
