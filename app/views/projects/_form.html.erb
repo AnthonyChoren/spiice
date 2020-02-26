@@ -1,0 +1,11 @@
+<%= simple_form_for(project) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :progress %>
+  <%= f.input :start %>
+  <%= f.input :deadline %>
+  <div class="form-actions" style="margin-top: 24px; margin-bottom: 24px;" >
+    <%= f.button :submit, "Sign up", class: 'btn btn-primary' %>
+  </div><%= form.button :submit %>
+<% end %>

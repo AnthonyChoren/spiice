@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :users, only: [ :index, :show ]
+
   namespace :admin do
     resources :projects, only: [ :index, :new, :create, :edit, :update ]
   end
@@ -10,8 +14,6 @@ Rails.application.routes.draw do
     resources :projects, only: [ :index ]
   end
     resources :projects , only: [ :index, :show ] do
-      resources :requests, only: [ :show, :index, :new, :create, :edit, :update ]
+      resources :requests, only: [ :show, :index, :new, :create ]
   end
-
-
 end

@@ -1,2 +1,16 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="title">My profil</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mt-5 ml-5">
+      <div class="d-flex ">
+        <%= image_tag "logo.png", alt: "alttext", class: 'profil-pic' %>
+        <h4 class="name"><%= current_user.first_name + ' ' + current_user.last_name %></h3>
+      </div>
+    </div>
+  </div>
+</div>
