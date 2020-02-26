@@ -33,9 +33,6 @@ class ProjectsController < ApplicationController
   def set_project
   @project = Project.find(params[:id])
 
-  # def project_params
-  #   params.require(:project).permit(:title, :description, :price, :progress, :start, :deadline)
-  # end
+  end
 
-end
 end
