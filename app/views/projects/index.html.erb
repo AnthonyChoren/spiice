@@ -1,11 +1,11 @@
 <h1>Project#index</h1>
 <p>Find me in app/views/project/index.html.erb</p>
 
-<div  class="container align-content-sm-center">
+<div  class="container ">
   <div  class="col-sm-8 offset-sm-2">
     <% @projects.each do |project| %>
-    <div class="row mt-5" >
-      <div class="card " >
+    <div class="row"  >
+      <div class="card mt-5" >
         <div class="card-header">
           <%= project.title %>
         </div>
@@ -16,12 +16,12 @@
             <p class="card-text">Start Time :<%= project.start %></p>
             <p class="card-text">End Time :<%= project.deadline %></p>
             <%= link_to "Project details", project_path(project), class: "btn btn-primary" %>
-          <% end %>
           </div>
 
-    </div>
+       </div>
 
-  </div>
+    </div>
+  <% end %>
   </div>
 </div>
 
