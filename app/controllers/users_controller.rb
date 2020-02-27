@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:user]
 
   def index
-    @users = User.all
+    @users = User.where(role: 1)
   end
 
   def show
