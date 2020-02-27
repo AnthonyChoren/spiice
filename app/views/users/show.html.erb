@@ -1,5 +1,11 @@
 <!-- if client // designer
  -->
+<div class="pl-2 pb-2 mt-2 d-flex justify-content-start align-items-center">
+  <a href="<%= projects_path %>" class="ri-arrow-left-circle-line back-icon"></a>
+  <div>
+    <%= link_to "Back", users_path, class: "btn-back pl-1" %>
+  </div>
+</div>
 
 <div class="container">
   <div class="row">
@@ -12,7 +18,7 @@
   <div class="row">
     <div class="col mt-4">
       <div class="d-flex">
-        <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
+        <%#= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
         <h4 class="name-title"><%= current_user.first_name + ' ' + current_user.last_name %></h3>
       </div>
     </div>
