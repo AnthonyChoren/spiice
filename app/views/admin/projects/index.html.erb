@@ -11,6 +11,7 @@
       <p class="card-text">For a price of <%= project.price %> EUR</p>
       <p class="card-text"><%= project.deadline %></p>
       <%= link_to 'View details', project_path(project), class: 'btn btn-primary'  %>
+      <%= link_to 'View all your propositions for this project', requests_path(project), class: 'btn btn-primary'  %>
     </div>
   </div>
   <% end %>

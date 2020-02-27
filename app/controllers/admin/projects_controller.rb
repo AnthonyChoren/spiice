@@ -3,8 +3,7 @@ class Admin::ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :set_project, only: [:edit, :update]
   def index
-    @projects = Project.all
-    # @projects = current_user.Project.all
+    @projects = Project.all.where(user: current_user)
   end
 
   def new

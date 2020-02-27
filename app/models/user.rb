@@ -18,5 +18,5 @@ class User < ApplicationRecord
   # validates :country_code, presence: true
   # validates :role, presence: true
 
-  enum roles: { client: 0, designer: 1 }
+  enum role: { client: 0, designer: 1 }
 end
