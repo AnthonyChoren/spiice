@@ -1,38 +1,39 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!, only: [:new,:create,:edit,:update] #destroy
+  before_action :set_project, only: [:show, :edit, :update] #destroy
+
   def index
     @projects = Project.all
   end
 
   def show
-    @project = Project.find(params[:id])
+
   end
 
-  def new
-    @project = Project.new
-  end
+  # def new
+  #   @project = Project.new
+  # end
 
-  def create
-    @project = Project.new(project_params)
-    @project.user = current_user
-    if @project.save
-      redirect_to project_path(@project)
-    else
-      render :new
-    end
-  end
+  # def create
+  #   @project = Project.new(project_params)
+  #   if @project.save
+  #     redirect_to project(@project)
+  # else
+  #   render :new
+  #   end
+  # end
 
-  def edit
-    @project = Project.find(params[:id])
-  end
+  # def edit
+  # end
 
-  def update
-    @project = Project.find(params[:id])
-    @project.update(params[:project])
-  end
+  # def update
+  # end
 
   private
 
-  def project_params
-    params.require(:project).permit(:title, :description, :price, :user_id)
+  def set_project
+  @project = Project.find(params[:id])
+
   end
+
 end
