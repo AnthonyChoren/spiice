@@ -37,28 +37,26 @@
 <h1>Project#index</h1>
 <p>Find me in app/views/project/index.html.erb</p>
 
-<div  class="container">
-  <div class="row">
-    <div  class="col-sm-8 offset-sm-2">
-      <% @projects.each do |project| %>
-        <div class="card">
-          <div class="card-header">
-            <%= project.title %>
-          </div>
-            <div class="card-body">
-              <h5 class="card-title">Progress :<%= project.progress %></h5>
-              <p class="card-text">Price : <%= project.price %></p>
-              <p class="card-text">Description :<%= project.description %></p>
-              <p class="card-text">Start Time :<%= project.start %></p>
-              <p class="card-text">End Time :<%= project.deadline %></p>
-              <%= link_to "Project details", project_path(project), class: "btn btn-primary" %>
-            </div>
-        <% end %>
-          <br>
-          <br>
+<div  class="container ">
+  <div  class="col-sm-8 offset-sm-2">
+    <% @projects.each do |project| %>
+    <div class="row"  >
+      <div class="card mt-5" >
+        <div class="card-header">
+          <%= project.title %>
         </div>
-
       </div>
+          <div class="card-body">
+            <h5 class="card-title">Progress : <%= project.progress %></h5>
+            <p class="card-text">Price : <%= project.price %></p>
+            <p class="card-text">Description :<%= project.description %></p>
+            <p class="card-text">Start Time :<%= project.start %></p>
+            <p class="card-text">End Time :<%= project.deadline %></p>
+            <%= link_to "Project details", project_path(project), class: "btn btn-primary" %>
+      </div>
+       </div>
     </div>
+  <% end %>
   </div>
 </div>
+
