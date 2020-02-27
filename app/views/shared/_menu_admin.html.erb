@@ -1,9 +1,9 @@
-<!-- MENU BAS  -->
 <div class="container">
   <div class="menu">
     <div class="box">
+      <p>client</p>
       <div>
-        <%= link_to projects_path do %>
+        <%= link_to admin_projects_path do %>
           <i class="ri-dashboard-line <%= 'active' if current_page?(projects_path) %>"></i>
         <% end %>
       </div>
@@ -13,7 +13,7 @@
         <% end %>
       </div>
       <div>
-        <%= link_to projects_path do %>
+        <%= link_to requests_path do %>
           <i class="ri-discuss-line"></i>
         <% end %>
       </div>
