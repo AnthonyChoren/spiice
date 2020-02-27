@@ -28,6 +28,7 @@
                         autofocus: true,
                         input_html: { autocomplete: "city" }%>
             <%= f.input :role, as: :radio_buttons, collection: User.roles.keys %>
+            <%= f.input :photo, as: :file %>
             <%= f.input :password,
                         required: true,
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -35,6 +36,7 @@
             <%= f.input :password_confirmation,
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
+
           </div>
 
           <div class="form-actions" style="margin-top: 24px; margin-bottom: 24px;" >

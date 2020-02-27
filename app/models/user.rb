@@ -19,4 +19,6 @@ class User < ApplicationRecord
    validates :role, presence: true
 
   enum role: { client: 0, designer: 1 }
+
+  has_one_attached :photo
 end
