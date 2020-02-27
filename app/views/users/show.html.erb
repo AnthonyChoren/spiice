@@ -1,3 +1,6 @@
+<!-- if client // designer
+ -->
+
 <div class="container">
   <div class="row">
     <div class="col">
@@ -9,7 +12,7 @@
   <div class="row">
     <div class="col mt-4">
       <div class="d-flex">
-        <%= image_tag "https://source.unsplash.com/ZqK8dLrQbpQ/200x200", alt: "alttext", class: 'profil-pic' %>
+        <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
         <h4 class="name-title"><%= current_user.first_name + ' ' + current_user.last_name %></h3>
       </div>
     </div>
@@ -48,7 +51,3 @@
   </div>
 </div>
 
-
-
-<%= cl_image_tag("x7vxxy2zolxo3y9bz8sw",
-      width: 400, height: 300, crop: :fill) %>
