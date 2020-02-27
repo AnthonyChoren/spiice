@@ -1,2 +1,34 @@
-<h1>User#index</h1>
-<p>Find me in app/views/user/index.html.erb</p>
+<div class="container text-center mt-5" >
+ <h1>The Best Designers</h1>
+ <div class="row justify-content-center  mt-5 ">
+  <h3>Find the right mate</h3>
+    <div class="col-xs-12 col-sm-10 mt-3 px-5 ">
+      <% @users.each do |user| %>
+        <div class="user-card list-group-item d-flex flex-row mb-3 border ">
+          <div class="photo w-25 ">
+            <%= image_tag 'logo.png', size: "150"  %>
+            <!-- <img src="avatar.jpg" alt="Designer"> -->
+          </div>
+          <div class="user-infos d-flex flex-column justify-content-center w-75
+          ">
+            <div class="user-name">
+              <p>
+                <%= user.first_name %>
+                <%= user.last_name %>
+              </p>
+            </div>
+            <div class="user-bio">
+              <p>
+                <%= user.bio %>
+              </p>
+              <%= link_to 'Take a look !', user_path, class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
