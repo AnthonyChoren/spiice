@@ -1,9 +1,13 @@
 class RequestsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :authenticate_user!
   before_action :set_project, only: [:edit, :update]
 
   def index
-    @requests = Request.all
+    if current_user.role == "client"
+      @requests = current_user.propositions
+    else
+      @requests = current_user.requests
+    end
   end
 
   def show
@@ -11,7 +15,11 @@ class RequestsController < ApplicationController
   end
 
   def new
+    if current_user.role == "designer"
     @request = Request.new
+    else
+      redirect_to projects_path
+    end
   end
 
   def create
@@ -19,7 +27,7 @@ class RequestsController < ApplicationController
     @request.project = Project.find(params[:project_id])
     @request.user = current_user
     if @request.save
-      redirect_to project_path(@project)
+      redirect_to requests_path
     else
       render 'new'
     end

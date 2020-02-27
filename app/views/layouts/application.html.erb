@@ -14,7 +14,13 @@
   <body>
     <%# render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/menu' %>
+    <% if current_user.present? %>
+      <% if current_user.role == "client" %>
+        <%= render 'shared/menu_admin' %>
+      <% else %>
+        <%= render 'shared/menu_designer' %>
+      <% end %>
+    <% end %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
