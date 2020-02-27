@@ -1,19 +1,18 @@
-<!-- MENU BAS  -->
 <div class="container">
   <div class="menu">
     <div class="box">
       <div>
-        <%= link_to projects_path do %>
+        <%= link_to designer_projects_path do %>
           <i class="ri-dashboard-line <%= 'active' if current_page?(projects_path) %>"></i>
         <% end %>
       </div>
       <div>
-        <%= link_to users_path do %>
+        <%= link_to projects_path do %>
           <i class="ri-search-line <%= 'active' if current_page?(users_path) %>"></i>
         <% end %>
       </div>
       <div>
-        <%= link_to projects_path do %>
+        <%= link_to requests_path do %>
           <i class="ri-discuss-line"></i>
         <% end %>
       </div>
