@@ -1,2 +1,11 @@
-<h1>Request#show</h1>
-<p>Find me in app/views/request/show.html.erb</p>
+<div class="container mt-3">
+  <div class="card mb-2">
+    <div class="card-body">
+      <p class="card-title"> <strong> Request for "<%= @request.project.title %>"</strong> </p>
+      <p class="card-text">"<%= @request.message %>"</p>
+      <hr>
+      <p class="card-text"><em>Request by <%= @request.user.first_name %> <%= @request.user.last_name %></em> </p>
+      <p class="card-text"><em>Contact: <%= @request.user.email %></em> </p>
+    </div>
+  </div>
+</div>

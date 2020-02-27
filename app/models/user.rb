@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :requests, dependent: :destroy
   has_many :projects, dependent: :destroy
+  has_many :requests, dependent: :destroy
+  has_many :propositions, through: :projects, source: :requests
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -14,7 +15,7 @@ class User < ApplicationRecord
   validates :phone_number, presence: true, length: { in: 8..12 }
   # validates :company, presence: true
   validates :city, presence: true
-  validates :country_code, presence: true
+  # validates :country_code, presence: true
   # validates :role, presence: true
 
   enum roles: { client: 0, designer: 1 }

@@ -1,2 +1,15 @@
-<h1>Request#new</h1>
-<p>Find me in app/views/request/new.html.erb</p>
+
+<div class="m-3">
+  <%= simple_form_for [@request], url: project_requests_path, method: :post do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :message,
+                input_html: { autocomplete: "message" }%>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Make a request for the project", class: "btn btn-primary" %>
+  </div>
+<% end %>
+</div>

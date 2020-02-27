@@ -1,2 +1,30 @@
 <h1>Project#show</h1>
 <p>Find me in app/views/project/show.html.erb</p>
+
+<h2><%= @project.title%></h2>
+<%= @project.description %>
+<%= @project.price.to_i %> $
+<p>Start <%= @project.start %></p>
+<p>End <%= @project.deadline %></p>
+
+
+<div class="container">
+  <div class="row">
+    <div  class="col-sm-8 offset-sm-2">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="image by default ? or possible to change image">
+        <div class="card-body">
+          <h5 class="card-title"><%= @project.title%></h5>
+          <p class="card-text"><%= @project.description %></p>
+          <p class="card-text"><%= @project.start %></p>
+          <p class="card-text"><%= @project.deadline %></p>
+          <p class="card-text"><%= @project.price %> $</p>
+        </div>
+      </div>
+      <%= link_to "Back to all projects", projects_path, class: "btn btn-primary"%>
+      <%= link_to "Back to all projects", projects_path, class: "btn btn-primary"%>
+    </div>
+  </div>
+</div>
+
+
