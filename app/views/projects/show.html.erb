@@ -40,7 +40,9 @@
 </div>
 <br>
 <div class="m-3">
+  <% if current_user.role == "designer" %>
   <%= link_to "Make a request for this project", new_project_request_path(@project), class: "btn btn-primary2 w-100"%>
+  <% end %>
 </div>
 
 

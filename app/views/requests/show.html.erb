@@ -9,9 +9,13 @@
       <p class="card-title"> <strong> Request for "<%= @request.project.title %>"</strong> </p>
       <p class="card-text">"<%= @request.message %>"</p>
       <hr>
+    <% if current_user.role == "client" %>
       <p class="card-text"><em>Request by <%= @request.user.first_name %> <%= @request.user.last_name %></em> </p>
       <p class="card-text"><em>Contact: <%= @request.user.email %></em> </p>
-      <%= link_to "Profile of designer", user_path(@request.user), class: "btn btn-primary"%>
+      <%= link_to "Profile of designer", user_path(@request.project.user), class: "btn btn-primary"%>
+      <% else %>
+      <%= link_to "View project", project_path(@request.project), class: "btn btn-primary2 w-100"%>
+    <% end %>
     </div>
   </div>
 </div>

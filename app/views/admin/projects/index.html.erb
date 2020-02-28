@@ -21,8 +21,6 @@
       <img class="card-img-top" src="..." alt="image by default ? or possible to change image">
       <p class="card-title"> <strong><%= project.title %></strong> </p>
       <p class="card-text"><%= project.description %></p>
-      <p class="card-text">For a price of <%= project.price %> EUR</p>
-      <p class="card-text"><%= project.deadline %></p>
       <%= link_to 'View details', project_path(project), class: 'btn btn-primary'  %>
       <br>
       <br>
