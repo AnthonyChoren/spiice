@@ -16,10 +16,10 @@ puts "creating seed"
 
 puts "creating users......."
 
-a = User.new(email: "aaa@gmail.com", password:"aaaaaa", first_name: "a_first_name", last_name: "a_last_name", phone_number:"1234567890", company:"A-corp", city:"A-city", country:"A-country", role: 1, bio:"Webdesigner since 1982, a lot of experience in Minitel and Nokia 3310 design, looking for new projects ")
-b = User.new(email: "bbb@gmail.com", password:"aaaaaa", first_name: "b_first_name", last_name: "b_last_name", phone_number:"0123456789", company:"B-corp", city:"B-city", country:"B-country", role: 1, bio:"Webdesigner since 2019, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio veniam ")
-c = User.new(email: "ccc@gmail.com", password:"aaaaaa", first_name: "c_first_name", last_name: "c_last_name", phone_number:"7894561230", company:"C-corp", city:"C-city", country:"C-country", role: 0, bio:"Project owner looking for a good webdesigner ")
-d = User.new(email: "ddd@gmail.com", password:"aaaaaa", first_name: "d_first_name", last_name: "d_last_name", phone_number:"9876543210", company:"D-corp", city:"D-city", country:"D-country", role: 0, bio:"Looking for a good webdesigner, project owner blabla blabla")
+a = User.new(email: "designer@gmail.com", password:"azerty", first_name: "a_first_name", last_name: "a_last_name", phone_number:"1234567890", company:"A-corp", city:"A-city", country:"A-country", role: 1, bio:"Webdesigner since 1982, a lot of experience in Minitel and Nokia 3310 design, looking for new projects ")
+b = User.new(email: "bbb@gmail.com", password:"azerty", first_name: "b_first_name", last_name: "b_last_name", phone_number:"0123456789", company:"B-corp", city:"B-city", country:"B-country", role: 1, bio:"Webdesigner since 2019, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio veniam ")
+c = User.new(email: "client@gmail.com", password:"azerty", first_name: "c_first_name", last_name: "c_last_name", phone_number:"7894561230", company:"C-corp", city:"C-city", country:"C-country", role: 0, bio:"Project owner looking for a good webdesigner ")
+d = User.new(email: "ddd@gmail.com", password:"azerty", first_name: "d_first_name", last_name: "d_last_name", phone_number:"9876543210", company:"D-corp", city:"D-city", country:"D-country", role: 0, bio:"Looking for a good webdesigner, project owner blabla blabla")
 a.save!
 b.save!
 c.save!
