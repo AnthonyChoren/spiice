@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
+
+  get 'admin/projects/index', to: 'projects#index', as: :admin_root
+  get 'designer/projects/index', to: 'projects#index', as: :designer_root
+
   root to: 'pages#home'
 
   resources :users, only: [ :index, :show ]
