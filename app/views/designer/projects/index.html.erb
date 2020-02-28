@@ -1,4 +1,4 @@
-<!-- A mettre dans admin/index.html.erb -->
+<!-- Code de Sabrina -->
 <div class="container">
   <div class="row">
     <div class="col">
@@ -17,46 +17,26 @@
     <div class="col mt-3"><h5>My projects</h5></div>
     <div class="flex">
       <div class="d-flex flex-column">
+        <%# @projects.each.where(user: current_user) do |project| %>
         <div class="card-project">
           <div class="row">
             <div class="col ">
             <%= image_tag "logo.png", alt: "alttext", class: "image-card-project"%>
           </div>
           <div class="col">
-            <p>Titre</p>
+            <p><%#= project.title %></p>
             <h5>Titre du projet</h5>
-            <p>Budget</p>
-          </div>
+            <p>Progress : <%#= project.progress %></p>
+            <p>Price : <%#= project.price %></p>
+            <p>Description :<%#= project.description %></p>
+            <p>Start Time :<%#= project.start %></p>
+            <p>End Time :<%#= project.deadline %></p>
+            <%#= link_to "Project details", project_path(project), class: "btn btn-primary" %>
           </div>
         </div>
-        <div class="card-project"></div>
-        <div class="card-project"></div>
-        <div class="card-project"></div>
-
-<!-- Code de Gregoire -->
-<h1>Project#index</h1>
-<p>Find me in app/views/project/index.html.erb</p>
-
-<div  class="container ">
-  <div  class="col-sm-8 offset-sm-2">
-    <% @projects.each do |project| %>
-    <div class="row"  >
-      <div class="card mt-5" >
-        <div class="card-header">
-          <%= project.title %>
-        </div>
+        <%# end %>
       </div>
-          <div class="card-body">
-            <h5 class="card-title">Progress : <%= project.progress %></h5>
-            <p class="card-text">Price : <%= project.price %></p>
-            <p class="card-text">Description :<%= project.description %></p>
-            <p class="card-text">Start Time :<%= project.start %></p>
-            <p class="card-text">End Time :<%= project.deadline %></p>
-            <%= link_to "Project details", project_path(project), class: "btn btn-primary" %>
-      </div>
-       </div>
     </div>
-  <% end %>
   </div>
   <br>
   <br>
