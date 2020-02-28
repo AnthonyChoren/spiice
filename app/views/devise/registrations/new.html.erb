@@ -29,6 +29,11 @@
                         input_html: { autocomplete: "city" }%>
             <%= f.input :role, as: :radio_buttons, collection: User.roles.keys %>
             <%= f.input :photo, as: :file %>
+            <%= f.input :bio,
+                        required: false,
+                        autofocus: true,
+                        placeholder:'A little biography about you (, can be updated later)',
+                        input_html: { autocomplete: "bio" }%>
             <%= f.input :password,
                         required: true,
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
