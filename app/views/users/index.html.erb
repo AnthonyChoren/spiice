@@ -12,7 +12,11 @@
         </div>
         <div class="card-body">
           <div class="d-flex justify-content-between">
-            <%= image_tag "logo.png", alt: "alttext", class: "image-card-project m-2 mr-3 mt-1"%>
+            <% if user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'image-card-project m-2 mr-3 mt-1' %>
+          <% else %>
+            <%= cl_image_tag ("logo_ddfsxd"), class: 'image-card-project m-2 mr-3 mt-1'%>
+          <% end %>
             <p class="card-text"><strong>Biography : <br></strong><em><%= user.bio %></em></p>
           </div>
           <hr>
