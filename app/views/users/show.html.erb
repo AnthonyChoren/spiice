@@ -1,17 +1,8 @@
 <% if @user.role == 'designer' %> <!-- view for designer -->
-
-  <div class="pl-2 pb-2 mt-2 d-flex justify-content-start align-items-center">
-    <a href="<%= projects_path %>" class="ri-arrow-left-circle-line back-icon"></a>
-    <div>
-      <%= link_to "Back", users_path, class: "btn-back pl-1" %>
-    </div>
-  </div>
-
-
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1 class="title">My profile</h1>
+        <h1 class="title">Profile</h1>
 
         <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'log-out' %>
       </div>
@@ -70,18 +61,10 @@
 <br>
 
 <% else %>
-  <div class="pl-2 pb-2 mt-2 d-flex justify-content-start align-items-center">
-    <a href="<%= projects_path %>" class="ri-arrow-left-circle-line back-icon"></a>
-    <div>
-      <%= link_to "Back", users_path, class: "btn-back pl-1" %>
-    </div>
-  </div>
-
-
-  <div class="container">
+ <div class="container">
     <div class="row">
       <div class="col">
-        <h1 class="title">My profile</h1>
+        <h1 class="title">Profile</h1>
 
         <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'log-out' %>
       </div>
