@@ -5,11 +5,6 @@
   </div>
 </div>
 
-<% if @user.role == 'client' %>
-<h3> this is a client profile </h3>
-<% else %>
-<h3> this is a designer profile </h3>
-<% end %>
 
 <div class="container">
   <div class="row">
@@ -60,10 +55,19 @@
     </div>
   </div>
 </div>
+
+
+<% if @user.role == 'client' %>
+<h3> this is a client profile </h3>
+<% else %>
+<h3> this is a designer profile </h3>
+<% end %>
+
 <br>
 <br>
 <br>
 <br>
 <br>
+
 
 
