@@ -17,7 +17,11 @@
   <div class="row">
     <div class="col mt-4">
       <div class="d-flex">
-        <%#= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
+        <% else %>
+          <%= cl_image_tag ("5GjvNpgeAVnsTpbWTatmPS56"), class: 'profil-pic'%>
+        <% end %>
         <h4 class="name-title"><%= current_user.first_name + ' ' + current_user.last_name %></h3>
       </div>
     </div>
