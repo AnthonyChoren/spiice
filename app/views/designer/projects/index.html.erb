@@ -1,46 +1,33 @@
-<!-- Code de Sabrina -->
 <div class="container">
   <div class="row">
     <div class="col">
       <h1 class="title">Dashboard</h1>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col mt-2">
-      <h5>My stats</h5>
-      <%= image_tag "charts.png", alt: "alttext" %>
-    </div>
+  <div class="col mt-2">
+    <h5>My stats</h5>
+    <%= image_tag "charts.png", alt: "alttext" %>
   </div>
-
   <div class="row">
     <div class="col mt-3"><h5>My projects</h5></div>
-    <div class="flex">
-      <div class="d-flex flex-column">
-        <%# @projects.each.where(user: current_user) do |project| %>
-        <div class="card-project">
-          <div class="row">
-            <div class="col ">
-            <%= image_tag "logo.png", alt: "alttext", class: "image-card-project"%>
+      <div  class="col-sm-8 offset-sm-2">
+        <% @projects.each do |project| %>
+          <div class="row"  >
+            <div class="card mt-5" >
+              <div class="card-header">
+                <%= project.title %>
+              </div>
+            </div>
+            <div class="card-project">
+              <h5 class="card-title">Progress : <%= project.progress %></h5>
+              <p class="card-text">Price : <%= project.price %></p>
+              <p class="card-text">Description :<%= project.description %></p>
+              <p class="card-text">Start Time :<%= project.start %></p>
+              <p class="card-text">End Time :<%= project.deadline %></p>
+              <%= link_to "Project details", project_path(project), class: "btn btn-primary" %>
+            </div>
           </div>
-          <div class="col">
-            <p><%#= project.title %></p>
-            <h5>Titre du projet</h5>
-            <p>Progress : <%#= project.progress %></p>
-            <p>Price : <%#= project.price %></p>
-            <p>Description :<%#= project.description %></p>
-            <p>Start Time :<%#= project.start %></p>
-            <p>End Time :<%#= project.deadline %></p>
-            <%#= link_to "Project details", project_path(project), class: "btn btn-primary" %>
-          </div>
-        </div>
-        <%# end %>
+        <% end %>
       </div>
-    </div>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
 </div>
