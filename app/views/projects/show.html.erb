@@ -1,12 +1,9 @@
-<h1>Project#show</h1>
-<p>Find me in app/views/project/show.html.erb</p>
-
-<h2><%= @project.title%></h2>
-<%= @project.description %>
-<%= @project.price.to_i %> $
-<p>Start <%= @project.start %></p>
-<p>End <%= @project.deadline %></p>
-
+<div class="pl-2 pb-2 mt-2 d-flex justify-content-start align-items-center">
+  <a href="<%= projects_path %>" class="ri-arrow-left-circle-line back-icon"></a>
+  <div>
+    <%= link_to "Back", projects_path, class: "btn-back pl-1" %>
+  </div>
+</div>
 
 <div class="container">
   <div class="row">
@@ -21,10 +18,21 @@
           <p class="card-text"><%= @project.price %> $</p>
         </div>
       </div>
-      <%= link_to "Back to all projects", projects_path, class: "btn btn-primary"%>
-      <%= link_to "Back to all projects", projects_path, class: "btn btn-primary"%>
+      <br>
+      <div>
+        <% if current_user.role == "client" %>
+          <%= link_to "Update", edit_admin_project_path(@project), class: "btn btn-primary mr-1"%>
+          <%= link_to "Back to all projects", projects_path, class: "btn btn-primary"%>
+        <% else %>
+          <%= link_to "Back to all projects", projects_path, class: "btn btn-primary"%>
+        <% end %>
+      </div>
     </div>
   </div>
+</div>
+<br>
+<div class="m-3">
+  <%= link_to "Make a request for this project", new_project_request_path(@project), class: "btn btn-success w-100"%>
 </div>
 
 
