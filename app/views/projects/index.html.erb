@@ -1,38 +1,26 @@
-<!-- Code de Gregoire -->
-<div class="m-3">
-  <h3>Projects</h3>
-</div>
-<div class="container d-flex align-items-center" style="flex-direction: column ">
-  <% @projects.each do |project| %>
-  <div  class="col-sm-8 offset-sm-2">
-    <div class="row"  >
-      <div class="card-project user-card mt-5 h-100" >
-        <div class="card-header">
-          <h6><%= project.title %></h6>
-        </div>
-        <div class="card-body">
-          <div class="d-flex justify-content-between">
-            <%= image_tag "logo.png", alt: "alttext", class: "image-card-project"%>
-            <h6 class="card-text text-right"><strong>Progress : <%= project.progress %></strong></h6>
-          </div>
-          <br>
-          <p class="card-text"><strong>Description : <br></strong><em><%= project.description %></em></p>
-          <p class="card-text"><strong>Price : </strong><%= project.price %> EUR</p>
-
-<!--           <hr>
-          <p class="card-text">Start project : <%= project.start %></p>
-          <p class="card-text">Deadline: <%= project.deadline %></p> -->
-          <%= link_to "Project details", project_path(project), class: "btn btn-primary" %>
-        </div>
-      </div>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="m-3">
+      <h3>Projects</h3>
     </div>
-
   </div>
-  <% end %>
+  <div class="row">
+    <div class="col mr-2">
+      <% @projects.each do |project|  %>
+        <div class="card mb-2">
+          <div class="card-body">
+            <% if project.user.photo.attached? %>
+              <%= cl_image_tag project.user.photo.key, alt: "alttext", class: 'card-img-top' %>
+            <% else %>
+              <%= cl_image_tag ("logo_ddfsxd"), class: 'card-img-top'%>
+            <% end %>
+            <p class="card-title"> <strong><%= project.title %></strong> </p>
+            <p class="card-text"><strong>Description : <br></strong><em><%= project.description %></p>
+            <p class="card-text"><strong>Price : </strong><%= project.price %> EUR</p>
+            <%= link_to "Project details", project_path(project), class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
