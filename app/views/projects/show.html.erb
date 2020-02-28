@@ -1,28 +1,36 @@
-<div class="pl-2 pb-2 mt-2 d-flex justify-content-start align-items-center">
-  <a href="<%= projects_path %>" class="ri-arrow-left-circle-line back-icon"></a>
-  <div>
-    <%= link_to "Back", projects_path, class: "btn-back pl-1" %>
-  </div>
+<div class="pl-2 pb-2 mt-2 d-flex justify-content-start align-items-center text-center">
+      <% if current_user.role == "client" %>
+      <div>
+        <a href="<%= admin_projects_path %>" class="ri-arrow-left-circle-line back-icon"></a>
+        <%= link_to "Back", admin_projects_path, class: "btn-back pl-1" %>
+      </div>
+      <% else %>
+      <div>
+        <a href="<%= projects_path %>" class="ri-arrow-left-circle-line back-icon"></a>
+        <%= link_to "Back", projects_path, class: "btn-back pl-1" %>
+      </div>
+      <% end %>
 </div>
 
 <div class="container">
   <div class="row">
     <div  class="col-sm-8 offset-sm-2">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="image by default ? or possible to change image">
+      <div class="card-product user-card" style="width: 100%;">
+        <%= image_tag "logo.png", alt: "alttext", class: "image-card-project m-3"%>
         <div class="card-body">
           <h5 class="card-title"><%= @project.title%></h5>
-          <p class="card-text"><%= @project.description %></p>
-          <p class="card-text"><%= @project.start %></p>
-          <p class="card-text"><%= @project.deadline %></p>
-          <p class="card-text"><%= @project.price %> $</p>
+          <p class="card-text"><strong>Price : </strong><%= @project.price %></p>
+          <p class="card-text"><strong>Description : <br></strong><em><%= @project.description %></em></p>
+          <hr>
+          <p class="card-text">Start project : <%= @project.start %></p>
+          <p class="card-text">Deadline: <%= @project.deadline %></p>
         </div>
       </div>
       <br>
       <div>
         <% if current_user.role == "client" %>
           <%= link_to "Update", edit_admin_project_path(@project), class: "btn btn-primary mr-1"%>
-          <%= link_to "Back to all projects", projects_path, class: "btn btn-primary"%>
+          <%= link_to "Back to all projects", admin_projects_path, class: "btn btn-primary"%>
         <% else %>
           <%= link_to "Back to all projects", projects_path, class: "btn btn-primary"%>
         <% end %>
@@ -32,7 +40,9 @@
 </div>
 <br>
 <div class="m-3">
-  <%= link_to "Make a request for this project", new_project_request_path(@project), class: "btn btn-success w-100"%>
+  <% if current_user.role == "designer" %>
+  <%= link_to "Make a request for this project", new_project_request_path(@project), class: "btn btn-primary2 w-100"%>
+  <% end %>
 </div>
 
 
