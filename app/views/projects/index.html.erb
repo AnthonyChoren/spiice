@@ -10,7 +10,7 @@
         <div class="card-header">
           <%= project.title %>
         </div>
-      </div>
+        </div>
           <div class="card-body">
             <h5 class="card-title">Progress : <%= project.progress %></h5>
             <p class="card-text">Price : <%= project.price %></p>
@@ -18,8 +18,8 @@
             <p class="card-text">Start Time :<%= project.start %></p>
             <p class="card-text">End Time :<%= project.deadline %></p>
             <%= link_to "Project details", project_path(project), class: "btn btn-primary" %>
+        </div>
       </div>
-       </div>
     </div>
   <% end %>
   </div>
