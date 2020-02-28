@@ -1,77 +1,143 @@
-<div class="pl-2 pb-2 mt-2 d-flex justify-content-start align-items-center">
-  <a href="<%= projects_path %>" class="ri-arrow-left-circle-line back-icon"></a>
-  <div>
-    <%= link_to "Back", users_path, class: "btn-back pl-1" %>
-  </div>
-</div>
+<% if @user.role == 'designer' %> <!-- view for designer -->
 
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1 class="title">My profil</h1>
-      <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'log-out' %>
+  <div class="pl-2 pb-2 mt-2 d-flex justify-content-start align-items-center">
+    <a href="<%= projects_path %>" class="ri-arrow-left-circle-line back-icon"></a>
+    <div>
+      <%= link_to "Back", users_path, class: "btn-back pl-1" %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col mt-4">
-      <div class="d-flex">
-        <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
-        <% else %>
-          <%= cl_image_tag ("5GjvNpgeAVnsTpbWTatmPS56"), class: 'profil-pic'%>
-        <% end %>
-        <h4 class="name-title"><%= current_user.first_name + ' ' + current_user.last_name %></h3>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="title">My profile</h1>
+
+        <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'log-out' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mt-4">
+        <div class="d-flex">
+          <% if @user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
+          <% else %>
+            <%= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%>
+          <% end %>
+          <h4 class="name-title"><%= @user.first_name + ' ' + @user.last_name %></h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mt-4">
+        <h5>Resume</h5>
+        <p>UX/UI Designer from San Jose with 10 year of experience.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mt-4">
+        <h5>Links</h5>
+        <p>LinkedIn</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mt-4"><h5>Portfolio</h5></div>
+      <div class="flex">
+        <div class="d-flex flex-wrap justify-content-center">
+          <div class="dribbble-card"></div>
+          <div class="dribbble-card"></div>
+          <div class="dribbble-card"></div>
+          <div class="dribbble-card"></div>
+          <div class="dribbble-card"></div>
+          <div class="dribbble-card"></div>
+          <div class="dribbble-card"></div>
+          <div class="dribbble-card"></div>
+          <div class="dribbble-card"></div>
+          <div class="dribbble-card"></div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col mt-4">
-      <h5>Resume</h5>
-      <p>UX/UI Designer from San Jose with 10 year of experience.</p>
-    </div>
-  </div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-  <div class="row">
-    <div class="col mt-4">
-      <h5>Links</h5>
-      <p>LinkedIn</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col mt-4"><h5>Portfolio</h5></div>
-    <div class="flex">
-      <div class="d-flex flex-wrap justify-content-center">
-        <div class="dribbble-card"></div>
-        <div class="dribbble-card"></div>
-        <div class="dribbble-card"></div>
-        <div class="dribbble-card"></div>
-        <div class="dribbble-card"></div>
-        <div class="dribbble-card"></div>
-        <div class="dribbble-card"></div>
-        <div class="dribbble-card"></div>
-        <div class="dribbble-card"></div>
-        <div class="dribbble-card"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<% if @user.role == 'client' %>
-<h3> this is a client profile </h3>
 <% else %>
-<h3> this is a designer profile </h3>
+  <div class="pl-2 pb-2 mt-2 d-flex justify-content-start align-items-center">
+    <a href="<%= projects_path %>" class="ri-arrow-left-circle-line back-icon"></a>
+    <div>
+      <%= link_to "Back", users_path, class: "btn-back pl-1" %>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="title">My profile</h1>
+
+        <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'log-out' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mt-4">
+        <div class="d-flex">
+          <% if @user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
+          <% else %>
+            <%= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%>
+          <% end %>
+          <h4 class="name-title"><%= @user.first_name + ' ' + @user.last_name %></h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mt-4">
+        <h5>Resume</h5>
+        <p>UX/UI Designer from San Jose with 10 year of experience.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col mt-4">
+        <h5>Links</h5>
+        <p>LinkedIn</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <ul class="list">
+      <% @user.projects.each do |project| %>
+            <div class="card-body">
+               <li> <%= link_to project.title , project_path(project), class: "btn btn-success" %></li>
+            </div>
+            <% end %>
+      </div>
+
+      </ul>
+
+      </div>
+    </div>
+
+
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
 <% end %>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
 
