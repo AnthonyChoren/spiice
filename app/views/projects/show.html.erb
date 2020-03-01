@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row">
     <div class="col mb-3 mt-4">
@@ -28,7 +27,7 @@
     <div  class="col">
       <div class="projects-card">
         <% if @project.user.photo.attached? %>
-          <div>
+          <div class="container" style="display: flex; justify-content:center; padding-top: 16px;">
             <%= cl_image_tag @project.user.photo.key, alt: "alttext", class: 'projects-card-img' %>
           </div>
         <% else %>

@@ -1,23 +1,20 @@
-<div class="mt-3 m-3">
-  <% if current_user.role == "client" %>
-  <h3>Your propositions for projects</h3>
-  <% else %>
-  <h3>Your requests for projects</h3>
-  <% end %>
-</div>
-<div class="container d-flex align-items-center" style="flex-direction: column ">
-  <% @requests.each do |request|  %>
-  <div class="card-project user-card h-100 w-100 m-2">
-    <div class="card-body">
-      <p class="card-title"> <strong> For "<%= request.project.title %>"</strong> </p>
-      <p class="card-text"><%= request.message %></p>
-      <%= link_to 'View details', request_path(request), class: 'btn btn-primary'  %>
+<div class="container">
+  <div class="row">
+    <div class="col mt-1">
+      <% if current_user.role == "client" %>
+        <h1 class="title">List of propositions</h1>
+      <% else %>
+        <h1 class="title">Your requests</h1>
+      <% end %>
     </div>
   </div>
+
+  <% @requests.each do |request|  %>
+    <div class="row mt-3 p-3 projects-card">
+      <p class="projects-card-title mt-2"> <strong> For "<%= request.project.title %>"</strong> </p>
+      <p class="projects-card-text"><%= request.message %></p>
+      <%= link_to 'View details', request_path(request), class: 'btn btn-primary3 mt-2'  %>
+    </div>
   <% end %>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
+
