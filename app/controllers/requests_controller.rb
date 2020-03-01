@@ -39,6 +39,19 @@ class RequestsController < ApplicationController
   def update
   end
 
+  def print_accepted
+    request = Request.find(params[:id])
+    status = @request.status
+    accepted = status == 1 ? " [x]" : "[ ]"
+  end
+
+  def change_to_accepted
+    request_accepted = Request.find(params[:id])
+    request_accepted.status = 1
+    request_accepted.save
+    # reject all the other requests on the project
+  end
+
 
   private
   def set_request
@@ -46,7 +59,7 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:message)
+    params.require(:request).permit(:message, :status)
   end
 end
 
