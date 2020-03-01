@@ -14,12 +14,11 @@
 }
 
 .btn-back {
-  font-family: Red Hat Display;
+  font-family: "Red Hat Display";
   font-weight: 300;
   font-size: 25px;
   line-height: 33px;
   /* identical to box height */
-
   text-decoration: none;
   color: #56556A;
   text-align: center;
@@ -29,19 +28,19 @@
   text-decoration: none;
 }
 
-
 .btn-back.hover {
   opacity: 0.9;
 }
 
 .back-icon {
-  // width: 50px;
-  // height: 50px;
   font-size: 2rem;
-
-  color: #56556A;
+  color: #001d2b;
 }
 
 .fa:hover {
   opacity: 0.2;
+}
+
+.align-icon {
+  align-items: center;
 }
