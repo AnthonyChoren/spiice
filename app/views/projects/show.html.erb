@@ -35,6 +35,9 @@
         <% if current_user.role == "client" %>
           <%= link_to "Update", edit_admin_project_path(@project), class: "btn btn-primary mr-1"%>
           <%= link_to "Back to all projects", admin_projects_path, class: "btn btn-primary"%>
+          <div class="mt-3">
+          <%= link_to 'View the propositions', requests_path(@project), class: 'btn btn-primary' %>
+          </div>
         <% else %>
           <%= link_to "Back to all projects", projects_path, class: "btn btn-primary"%>
         <% end %>
