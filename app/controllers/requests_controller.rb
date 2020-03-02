@@ -3,11 +3,13 @@ class RequestsController < ApplicationController
   before_action :set_project, only: [:edit, :update]
 
   def index
+
     if current_user.role == "client"
       @requests = current_user.propositions
     else
       @requests = current_user.requests
     end
+    #@projects = @requests.project
   end
 
   def show
@@ -34,9 +36,12 @@ class RequestsController < ApplicationController
   end
 
   def edit
+    set_request
   end
 
   def update
+    set_request
+    @request.update(status: 1)
   end
 
   def print_accepted
@@ -46,11 +51,18 @@ class RequestsController < ApplicationController
   end
 
   def change_to_accepted
-    request_accepted = Request.find(params[:id])
-    request_accepted.status = 1
-    request_accepted.save
+    # request_accepted = Request.find(params[:id])
+    # request_accepted.status = 1
+    # request_accepted.save
     # reject all the other requests on the project
   end
+
+  def destroy
+    set_request
+    @request.destroy
+    redirect_to requests_path
+  end
+
 
 
   private

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       resources :requests, only: [ :new, :create ]
   end
 
-  resources :requests, only: [ :show, :index, :update ] do
+  resources :requests, only: [ :show, :index, :edit, :update ] do
       get :change_to_accepted
     end
 end

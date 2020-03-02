@@ -5,34 +5,37 @@
   <h3>Your requests for projects</h3>
   <% end %>
 </div>
+
+<%# @projects.requests.each do |request| %>
+<!--   <div>
+
+
+  </div> -->
+<%# end %>
+
 <div class="container d-flex align-items-center" style="flex-direction: column ">
   <% @requests.each do |request|  %>
 
-      <div class="card-project user-card h-100 w-100 m-2">
-        <a href="<%= request_path(request) %>">
-        <div class="linkable">
-          <div class="card-body">
-            <% if current_user.role == "client" %>
-              <%= link_to "Accept", request_change_to_accepted_path(request), class: "button" %>
-              <!-- if client has accepted the request  -->
-            <% end %>
-            <div class="d-flex justify-content-between">
-              <p class="card-title"> <strong> For "<%= request.project.title %>"</strong> </p>
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary active">
-                  <input type="radio" name="options" id="option1" checked> Accepted
-                </label>
-                <label class="btn btn-secondary">
-                  <input type="radio" name="options" id="option2"> Not accepted
-                </label>
-              </div>
-            </div>
-            <p class="card-text"><%= request.message %></p>
-            <p class="card-text"> Status: <%= request.status %></p>
-            <%= link_to 'View details', request_path(request), class: 'btn btn-primary'  %>
-          </div>
+    <div class="container d-flex align-items-center" style="flex-direction: column ">
+      <div class="card-project user-card h-100 w-100 m-2 linkable">
+        <div class="card-body">
+          <p class="card-title"> <strong> Request for "<%= request.project.title %>"</strong> </p>
+          <p class="card-text">Message: "<%= request.message %>"</p>
+          <% if current_user.role == "client" %>
+            <p class="card-text"><em>Request by <%= request.user.first_name %> <%= request.user.last_name %></em> </p>
+            <p class="card-text"><em>Contact: <%= request.user.email %></em> </p>
+            <%= link_to "Profile of designer", user_path(request.user), class: "btn btn-primary"%>
+            <%#= link_to "Accept", request_change_to_accepted_path(request), class: "button" %>
+            <br>
+            <hr>
+            <%= render 'shared/accept_button', project: @project, request: request %>
+          <% else %>
+            <hr>
+            <p class="card-text">Requested at <em><%= request.created_at %> </em> </p>
+            <%= link_to "View project", project_path(request.project), class: "btn btn-primary2 w-100"%>
+          <% end %>
         </div>
-      </a>
+      </div>
     </div>
   <% end %>
 </div>
