@@ -6,6 +6,10 @@
       <h1 class="title">All designers</h1>
     </div>
   </div>
+  <div class="row d-flex align-items-center" style="flex-direction: column">
+    <input type=”text” name=”query” id=”query” placeholder="I want to find…">
+    <input type=”submit” name=”commit” value=“Search” class="btn btn-primary">
+  </div>
   <% @users.each do |user| %>
     <%= link_to user_path(user) do %>
       <div class="row mt-3 projects-card" style="color: #8C8C95">
@@ -26,6 +30,3 @@
   <div class="row" style="height: 120px;">
   </div>
 </div>
-
-
-
