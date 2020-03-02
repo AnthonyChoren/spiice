@@ -1,2 +1,20 @@
-.log-out {
+
+  .fas{
+  border: 1px;
+  border-radius: 10%;
+  background-color: #e7e7e7;
+  color: red;
+  padding: 7px 35px;
+  font-weight: bold;
+}
+.fas:hover {
+  background-color: #3e8e41;
+}
+
+.fas:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+
+
 }

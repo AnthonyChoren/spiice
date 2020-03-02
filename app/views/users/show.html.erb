@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1 class="title">My profil</h1>
-      <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'log-out' %>
+      <h1 class="title text-align-center">My Profil</h1>
+      <%= link_to " Log-out", destroy_user_session_path, method: :delete, class: 'fas fa-cloud' %>
+
     </div>
   </div>
 
@@ -16,21 +17,20 @@
   </div>
 
   <div class="row">
-    <div class="col mt-4">
-      <h5>Resume</h5>
+    <div class="resume col mt-4 ">
+      <h4>Resume</h4>
       <p>UX/UI Designer from San Jose with 10 year of experience.</p>
     </div>
   </div>
 
   <div class="row">
-    <div class="col mt-4">
-      <h5>Links</h5>
-      <p>LinkedIn</p>
+    <div class="links col pb-2 mt-4">
+       <%= link_to "LinkedIn",  class:'fa fa-linkedin' %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col mt-4"><h5>Portfolio</h5></div>
+  <div class="row ">
+    <div class="portfolio col mt-2 px-2 "><h4>Portfolio</h4></div>
     <div class="flex">
       <div class="d-flex flex-wrap justify-content-center">
         <div class="dribbble-card"></div>
@@ -50,5 +50,4 @@
 
 
 
-<%= cl_image_tag("x7vxxy2zolxo3y9bz8sw",
-      width: 400, height: 300, crop: :fill) %>
+
