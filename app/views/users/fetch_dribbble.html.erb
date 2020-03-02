@@ -1,0 +1,14 @@
+<!-- // VIDER LE CONTENER
+<%# const dribbbleGrid = document.querySelector("#dribbble-shots"); %>
+<%# dribbbleGrid.innerHTML = ''; %>
+// ITERER SUR CHAQUE OBJET
+<%# @dribbble_json.forEach((shot) => { %>
+<%#  console.log(shot.images.one_x); %>
+<%# }); %>
+// RECUPERER L IMAGE
+// CREER UN COMPOSANT
+// INJECTER LE COMPOSANT DANS LE CONTENEUR -->
+
+ <% @repos.each do |shot| %>
+ <%= shot["images"]["one_x"] %>
+ <% end %>
