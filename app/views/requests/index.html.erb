@@ -19,15 +19,16 @@
     <div class="container d-flex align-items-center" style="flex-direction: column ">
       <div class="card-project user-card h-100 w-100 m-2 linkable">
         <div class="card-body">
+          <p class="card-title"> <strong> Status: "<%= request.status%>"</strong> </p>
           <p class="card-title"> <strong> Request for "<%= request.project.title %>"</strong> </p>
           <p class="card-text">Message: "<%= request.message %>"</p>
           <% if current_user.role == "client" %>
             <p class="card-text"><em>Request by <%= request.user.first_name %> <%= request.user.last_name %></em> </p>
             <p class="card-text"><em>Contact: <%= request.user.email %></em> </p>
             <%= link_to "Profile of designer", user_path(request.user), class: "btn btn-primary"%>
-            <%#= link_to "Accept", request_change_to_accepted_path(request), class: "button" %>
             <br>
             <hr>
+            <%= link_to "Accept", edit_request_path(request), class: "button" %>
             <%= render 'shared/accept_button', project: @project, request: request %>
           <% else %>
             <hr>

@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_project, only: [:edit, :update]
+  before_action :set_request, only: [:edit, :update]
 
   def index
 
@@ -42,20 +42,17 @@ class RequestsController < ApplicationController
   def update
     set_request
     @request.update(status: 1)
+    @request.project.requests.where(status: 0).each do |request|
+      request.update(status: 2)
+    end
+    redirect_to requests_path
   end
 
-  def print_accepted
-    request = Request.find(params[:id])
-    status = @request.status
-    accepted = status == 1 ? " [x]" : "[ ]"
-  end
-
-  def change_to_accepted
-    # request_accepted = Request.find(params[:id])
-    # request_accepted.status = 1
-    # request_accepted.save
-    # reject all the other requests on the project
-  end
+  # def print_accepted
+  #   request = Request.find(params[:id])
+  #   status = @request.status
+  #   accepted = status == 1 ? " [x]" : "[ ]"
+  # end
 
   def destroy
     set_request

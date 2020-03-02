@@ -4,5 +4,5 @@ class Request < ApplicationRecord
 
   validates :message, presence: true
 
-  enum status: { pending: 0, accepted: 1 }
+  enum status: { pending: 0, accepted: 1, refused: 2 }
 end
