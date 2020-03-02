@@ -19,8 +19,6 @@ Rails.application.routes.draw do
       resources :requests, only: [ :new, :create ]
   end
 
-  resources :search, only: [:index]
-  
   resources :requests, only: [ :show, :index, :edit, :update ] do
     patch :refuse
   end
