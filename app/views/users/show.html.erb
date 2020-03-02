@@ -16,8 +16,8 @@
           <% if @user.photo.attached? %>
             <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
           <% else %>
-<!--             <%#= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%>
- -->          <% end %>
+            <%= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%>
+          <% end %>
           <h4 class="name-title"><%= @user.first_name + ' ' + @user.last_name %></h3>
         </div>
       </div>
@@ -80,7 +80,7 @@
           <% if @user.photo.attached? %>
             <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
           <% else %>
-<!--             <%#= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%> -->
+            <%= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%>
           <% end %>
           <h4 class="name-title"><%= @user.first_name + ' ' + @user.last_name %></h3>
         </div>
