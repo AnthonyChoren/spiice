@@ -30,14 +30,14 @@
     <div class="row">
       <div class="col mt-4">
         <h5>Resume</h5>
-        <p>UX/UI Designer from San Jose with 10 year of experience.</p>
+        <p><%= @user.bio %></p>
       </div>
     </div>
 
     <div class="row">
-      <div class="col mt-4">
-        <h5>Links</h5>
-        <p>LinkedIn</p>
+      <div class="col mt-4 d-flex align-items-center m-2" style="flex-direction: row ">
+        <p><i class="fab fa-linkedin-in text-primary m-2"></i></p>
+        <p><i class="fab fa-instagram text-primary m-2"></i></p>
       </div>
     </div>
 
@@ -68,18 +68,22 @@
 <br>
 
 <% else %>
- <div class="container">
+  <div class="container">
     <div class="row">
-      <div class="col">
-        <h1 class="title">Profile</h1>
-
-        <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'log-out' %>
-        <%= link_to "Edit profile", edit_user_registration_path, class: 'btn-primary' %>
+      <div class="col profile-banner bg-primary">
+        <h1 class="title text-white">Profile</h1>
+         <div class="justify-content-center">
+          <br>
+          <% if @user == current_user  %>
+            <%= link_to "Edit profile", edit_user_registration_path, class: 'text-white btn-primary2' %>
+            <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'text-white btn-primary2' %>
+          <% end %>
+          </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col mt-4">
+      <div class="col mt-5">
         <div class="d-flex">
           <% if @user.photo.attached? %>
             <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
@@ -94,24 +98,26 @@
     <div class="row">
       <div class="col mt-4">
         <h5>Resume</h5>
-        <p>UX/UI Designer from San Jose with 10 year of experience.</p>
+        <p><%= @user.bio %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex align-items-center" style="flex-direction: row ">
+        <p><i class="fab fa-linkedin-in text-primary m-2"></i></p>
+        <p><i class="fab fa-instagram text-primary m-2"></i></p>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col mt-4">
-        <h5>Links</h5>
-        <p>LinkedIn</p>
-      </div>
-    </div>
-
-    <div class="row">
-      <ul class="list">
-      <% @user.projects.each do |project| %>
-            <div class="card-body">
-               <li> <%= link_to project.title , project_path(project), class: "btn btn-success" %></li>
-            </div>
-            <% end %>
+    <div class="row p-0">
+        <div class="col mt-4">
+        <ul class="list p-0 w-100">
+          <h5>My projects</h5>
+        <% @user.projects.each do |project| %>
+              <div class="card-body d-flex justify-content-start w-100">
+                 <li> <%= link_to project.title , project_path(project), class: "btn btn-primary3 w-100" %></li>
+              </div>
+              <% end %>
+        </div>
       </div>
       </ul>
 
