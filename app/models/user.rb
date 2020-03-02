@@ -20,5 +20,12 @@ class User < ApplicationRecord
 
   enum role: { client: 0, designer: 1 }
 
+  include PgSearch::Model
+  pg_search_scope :search_by_query,
+    against: [ :bio, :first_name, :last_name ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
 
 end

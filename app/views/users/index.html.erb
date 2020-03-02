@@ -3,6 +3,10 @@
   <h5><em>Find the right mate!</em></h5>
 </div>
 <div class="container d-flex align-items-center" style="flex-direction: column ">
+
+          <input type=”text” name=”query” id=”query” placeholder="I want to find…">
+          <input type=”submit” name=”commit” value=“Search” class="btn btn-primary">
+
   <% @users.each do |user| %>
   <div  class="col-sm-8 offset-sm-2">
     <div class="row"  >
@@ -29,6 +33,10 @@
   </div>
   <% end %>
 </div>
+
+
+
+
 <br>
 <br>
 <br>

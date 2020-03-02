@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :users, only: [ :index, :show ]
+  resources :users, only: [ :index, :show, :edit, :update ]
 
   namespace :admin do
     resources :projects, only: [ :index, :new, :create, :edit, :update ]
@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   end
 
   resources :requests, only: [ :show, :index, :update ]
+
+  resources :search, only: [:index]
 end

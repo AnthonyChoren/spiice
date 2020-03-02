@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'devise'
 gem 'country_select', '~> 4.0'
 gem 'cloudinary', '~> 1.12.0'
+gem 'pg_search', '~> 2.3.0'
 
 
 group :development do

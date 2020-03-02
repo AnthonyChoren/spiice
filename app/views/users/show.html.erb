@@ -5,6 +5,7 @@
         <h1 class="title">Profile</h1>
 
         <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'log-out' %>
+        <%= link_to "Edit profile", edit_user_registration_path, class: 'btn-primary' %>
       </div>
     </div>
 
@@ -67,6 +68,7 @@
         <h1 class="title">Profile</h1>
 
         <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'log-out' %>
+        <%= link_to "Edit profile", edit_user_registration_path, class: 'btn-primary' %>
       </div>
     </div>
 
@@ -105,7 +107,6 @@
             </div>
             <% end %>
       </div>
-
       </ul>
 
       </div>
