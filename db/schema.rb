@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_02_27_155114) do
     t.bigint "user_id"
     t.boolean "accepted"
     t.datetime "created_at", null: false
-    t.string "status"
+    t.integer "status", default: 0, null: false
     t.datetime "updated_at", null: false
     t.string "message"
     t.index ["project_id"], name: "index_requests_on_project_id"

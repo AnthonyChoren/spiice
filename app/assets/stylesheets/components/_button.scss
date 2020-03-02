@@ -28,7 +28,8 @@
   text-decoration: none;
 }
 
-.btn-back.hover {
+
+.btn-back:hover {
   opacity: 0.9;
 }
 
@@ -41,6 +42,11 @@
   opacity: 0.2;
 }
 
+
 .align-icon {
   align-items: center;
+}
+
+.linkable:hover{
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }

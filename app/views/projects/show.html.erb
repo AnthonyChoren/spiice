@@ -42,6 +42,13 @@
             <p class="projects-card-text"><strong>Start:</strong> <%= @project.start %></p>
             <p class="projects-card-text"><strong>Deadline:</strong> <%= @project.deadline %></p>
             <p class="projects-card-price" style="margin-top: 24px; padding-bottom: 24px; " >Budget: <%= @project.price %>$</p>
+              <% if current_user.role == "designer"%>
+          <!-- plus: just show when the request is accepted -->
+              <p class="card-text">Contact the client:
+              <%= @project.user.first_name %> <%= @project.user.last_name %>
+              <%= @project.user.email %>
+              </p>
+            <% end %>
           </div>
         </div>
       </div>
@@ -65,3 +72,4 @@
     </div>
   </div>
 </div>
+
