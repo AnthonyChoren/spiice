@@ -29,7 +29,7 @@
 }
 
 
-.btn-back.hover {
+.btn-back:hover {
   opacity: 0.9;
 }
 
@@ -43,4 +43,8 @@
 
 .fa:hover {
   opacity: 0.2;
+}
+
+.linkable:hover{
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
