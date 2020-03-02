@@ -1,0 +1,35 @@
+<% if current_user.role == "client" %>
+  <% if request.status == "pending" %>
+  <!-- Button with action to accept: method: get, path: edit_request -->
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-secondary active">
+        <%= link_to edit_request_path(request) do %>
+        <input type="radio" name="options" id="option1" method="get" url="edit_request_path"> Accept
+        <% end %>
+      </label>
+      <label class="btn btn-secondary">
+        <%#= link_to request_refuse_path(request), method: :patch do %>
+        <!-- <input type="radio" name="options" id="option2" method="patch"> Not accept -->
+        <%# end %>
+
+        <%= link_to "Refuse", request_refuse_path(request, request: { request_id: request.id, decision: 'rejection' }), data: { confirm: 'Are you sure?'}, method: :patch %>
+
+      </label>
+    </div>
+  <% elsif request.status == "refused" %>
+  <!-- see the result: refused -->
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-secondary">
+        <input type="radio" name="options" id="option2"> Refused
+      </label>
+    </div>
+  <% else %>
+  <!-- see the result: accepted -->
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="radio" name="options" id="option1"> Accepted
+        </label>
+      </div>
+  <% end %>
+<% end %>
+

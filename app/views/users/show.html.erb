@@ -1,4 +1,5 @@
-<% if @user.role == 'designer' %> <!-- view for designer -->
+<!-- view for designer -->
+<% if @user.role == 'designer' %>
   <div class="container">
     <div class="row">
       <div class="col">
@@ -15,8 +16,8 @@
           <% if @user.photo.attached? %>
             <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
           <% else %>
-            <%= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%>
-          <% end %>
+<!--             <%#= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%>
+ -->          <% end %>
           <h4 class="name-title"><%= @user.first_name + ' ' + @user.last_name %></h3>
         </div>
       </div>
@@ -36,20 +37,21 @@
       </div>
     </div>
 
+    <% if current_user.id == @user.id %>
+      <div id="shots"></div>
+    <% end %>
+
     <div class="row">
-      <div class="col mt-4"><h5>Portfolio</h5></div>
+      <div class="col mt-4">
+        <h5>Portfolio</h5>
+      </div>
       <div class="flex">
-        <div class="d-flex flex-wrap justify-content-center">
-          <div class="dribbble-card"></div>
-          <div class="dribbble-card"></div>
-          <div class="dribbble-card"></div>
-          <div class="dribbble-card"></div>
-          <div class="dribbble-card"></div>
-          <div class="dribbble-card"></div>
-          <div class="dribbble-card"></div>
-          <div class="dribbble-card"></div>
-          <div class="dribbble-card"></div>
-          <div class="dribbble-card"></div>
+        <div class="d-flex flex-wrap justify-content-center" id="dribbble-shots">
+          <% @repos.each do |shot| %>
+            <div class="dribbble-card">
+              <img src="<%= shot["images"]["one_x"] %>" alt="" class="shot">
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -78,7 +80,7 @@
           <% if @user.photo.attached? %>
             <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
           <% else %>
-            <%= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%>
+<!--             <%#= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%> -->
           <% end %>
           <h4 class="name-title"><%= @user.first_name + ' ' + @user.last_name %></h3>
         </div>
@@ -111,9 +113,6 @@
 
       </div>
     </div>
-
-
-
 
   <br>
   <br>

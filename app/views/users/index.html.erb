@@ -1,45 +1,32 @@
-<div class="m-3">
-  <h3><strong></strong>Our best designers</h3>
-  <h5><em>Find the right mate!</em></h5>
-</div>
-<div class="container d-flex align-items-center" style="flex-direction: column ">
+<!-- ALL DESIGNERS  -->
 
-          <input type=”text” name=”query” id=”query” placeholder="I want to find…">
-          <input type=”submit” name=”commit” value=“Search” class="btn btn-primary">
-
-  <% @users.each do |user| %>
-  <div  class="col-sm-8 offset-sm-2">
-    <div class="row"  >
-      <div class="card-project project-card mt-1 h-100" >
-        <div class="card-header">
-          <h6><%=user.first_name.capitalize %> <%= user.last_name.capitalize %></h6>
-        </div>
-        <div class="card-body">
-          <div class="d-flex justify-content-between">
-            <% if user.photo.attached? %>
-            <%= cl_image_tag user.photo.key, alt: "alttext", class: 'image-card-project m-2 mr-3 mt-1' %>
-          <% else %>
-            <%= cl_image_tag ("logo_ddfsxd"), class: 'image-card-project m-2 mr-3 mt-1'%>
-          <% end %>
-            <p class="card-text"><strong>Biography : <br></strong><em><%= user.bio %></em></p>
-          </div>
-          <hr>
-          <div class="d-flex justify-content-center">
-            <%= link_to 'Take a look !', user_path(user), class: "btn btn-primary w-100" %>
-          </div>
-        </div>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col mt-1">
+      <h1 class="title">All designers</h1>
     </div>
   </div>
+  <div class="row d-flex align-items-center" style="flex-direction: column">
+    <input type=”text” name=”query” id=”query” placeholder="I want to find…">
+    <input type=”submit” name=”commit” value=“Search” class="btn btn-primary">
+  </div>
+  <% @users.each do |user| %>
+    <%= link_to user_path(user) do %>
+      <div class="row mt-3 projects-card" style="color: #8C8C95">
+        <div class="col-2 d-flex justify-content-center">
+          <% if user.photo.attached? %>
+            <%= cl_image_tag user.photo.key, alt: "alttext", class: 'designers-card-avatar' %>
+          <% else %>
+            <%= image_tag "spiice.jpg", class: 'designers-card-avatar' %>
+          <% end %>
+        </div>
+        <div class="col-10">
+          <h4 class="designers-card-title "><%= "#{user.first_name.capitalize} #{user.last_name.capitalize}" %></h4>
+          <p class="designers-card-text"><%= user.bio %>$</p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
+  <div class="row" style="height: 120px;">
+  </div>
 </div>
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
