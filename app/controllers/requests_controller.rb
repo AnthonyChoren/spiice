@@ -51,6 +51,7 @@ class RequestsController < ApplicationController
     def refuse
       @request = Request.find(params[:request_id])
       @request.update(status: 2)
+      redirect_to requests_path
     end
 
   # def print_accepted

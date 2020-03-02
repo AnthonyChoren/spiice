@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   end
 
   resources :requests, only: [ :show, :index, :edit, :update ] do
-    get :refuse
+    patch :refuse
   end
 end

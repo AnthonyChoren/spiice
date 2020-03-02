@@ -8,9 +8,12 @@
         <% end %>
       </label>
       <label class="btn btn-secondary">
-        <%= link_to request_refuse_path(request) do %>
-        <input type="radio" name="options" id="option2"> Not accept
-        <% end %>
+        <%#= link_to request_refuse_path(request), method: :patch do %>
+        <!-- <input type="radio" name="options" id="option2" method="patch"> Not accept -->
+        <%# end %>
+
+        <%= link_to "Refuse", request_refuse_path(request, request: { request_id: request.id, decision: 'rejection' }), data: { confirm: 'Are you sure?'}, method: :patch %>
+
       </label>
     </div>
   <% elsif request.status == "refused" %>
