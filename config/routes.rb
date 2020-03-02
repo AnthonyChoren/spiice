@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users, only: [ :index, :show ]
+  get "fetch_dribbble", to: "users#fetch_dribbble"
 
   namespace :admin do
     resources :projects, only: [ :index, :new, :create, :edit, :update ]

@@ -11,6 +11,8 @@
   list-style-type: none;
 }
 
+// PROJECTS
+
 .projects-card {
   margin: 0px 0px;
   width: 100%;
@@ -54,4 +56,27 @@
   margin-left: 8px;
   margin-top: 8px;
   margin-bottom: 16px;
+}
+
+// DESIGNERS
+
+.designers-card-avatar {
+  border-radius: 50px;
+  width: 48px;
+  height: 48px;
+  margin: 8px;
+}
+
+.designers-card-text {
+  font-size: 14px;
+  margin-left: 0px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.designers-card-title {
+  font-weight: bold;
+  margin-left: 0px;
+  margin-top: 16px;
+  margin-bottom: 0px
 }
