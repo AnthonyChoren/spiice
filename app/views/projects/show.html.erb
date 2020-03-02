@@ -28,6 +28,14 @@
           <hr>
           <p class="card-text">Start project : <%= @project.start %></p>
           <p class="card-text">Deadline: <%= @project.deadline %></p>
+          <hr>
+          <% if current_user.role == "designer"%>
+          <!-- plus: just show when the request is accepted -->
+            <p class="card-text">Contact the client:
+              <%= @project.user.first_name %> <%= @project.user.last_name %>
+              <%= @project.user.email %>
+            </p>
+          <% end %>
         </div>
       </div>
       <br>
@@ -48,5 +56,9 @@
   <%= link_to "Make a request for this project", new_project_request_path(@project), class: "btn btn-primary2 w-100"%>
   <% end %>
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
 

@@ -18,5 +18,7 @@ Rails.application.routes.draw do
       resources :requests, only: [ :new, :create ]
   end
 
-  resources :requests, only: [ :show, :index, :edit, :update ]
+  resources :requests, only: [ :show, :index, :edit, :update ] do
+    get :refuse
+  end
 end

@@ -48,6 +48,11 @@ class RequestsController < ApplicationController
     redirect_to requests_path
   end
 
+    def refuse
+      @request = Request.find(params[:request_id])
+      @request.update(status: 2)
+    end
+
   # def print_accepted
   #   request = Request.find(params[:id])
   #   status = @request.status

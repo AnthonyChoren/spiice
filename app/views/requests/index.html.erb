@@ -19,7 +19,17 @@
     <div class="container d-flex align-items-center" style="flex-direction: column ">
       <div class="card-project user-card h-100 w-100 m-2 linkable">
         <div class="card-body">
-          <p class="card-title"> <strong> Status: "<%= request.status%>"</strong> </p>
+          <div class=" d-flex justify-content-end">
+            <p class="card-title"> <strong>
+              <% if request.status == "accepted"  %>
+                <p class="status-card" style="color: green; opacity: 0.7;"><%= request.status.upcase %> </p>
+              <% elsif request.status == "refused" %>
+                <p class="status-card" style="color: red; opacity: 0.6;"><%= request.status.upcase %> </p>
+              <% else %>
+                <p class="status-card" style="opacity: 0.7;"><em><%= request.status.upcase %> </em> </p>
+              <% end %>
+            </strong> </p>
+          </div>
           <p class="card-title"> <strong> Request for "<%= request.project.title %>"</strong> </p>
           <p class="card-text">Message: "<%= request.message %>"</p>
           <% if current_user.role == "client" %>
@@ -28,8 +38,7 @@
             <%= link_to "Profile of designer", user_path(request.user), class: "btn btn-primary"%>
             <br>
             <hr>
-            <%= link_to "Accept", edit_request_path(request), class: "button" %>
-            <%= render 'shared/accept_button', project: @project, request: request %>
+            <%= render 'requests/accept_button', project: @project, request: request %>
           <% else %>
             <hr>
             <p class="card-text">Requested at <em><%= request.created_at %> </em> </p>
