@@ -1,165 +1,125 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1 class="title text-align-center">My Profil</h1>
-      <%= link_to " Log-out", destroy_user_session_path, method: :delete, class: 'fas fa-cloud' %>
-
-      <!-- view for designer -->
-      <% if @user.role == 'designer' %>
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <h1 class="title">Profile</h1>
-
-            <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'log-out' %>
-            <%= link_to "Edit profile", edit_user_registration_path, class: 'btn-primary' %>
+<!-- view for designer -->
+<% if @user.role == 'designer' %>
+  <div class="container">
+    <div class="row">
+      <div class="col profile-banner bg-primary">
+        <h1 class="title text-white">Profile</h1>
+         <div class="justify-content-center">
+          <br>
+          <% if @user == current_user  %>
+            <%= link_to "Edit profile", edit_user_registration_path, class: 'text-white btn-primary2' %>
+            <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'text-white btn-primary2' %>
+          <% end %>
           </div>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col mt-4">
+        <div class="d-flex">
+          <% if @user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
+          <% else %>
+            <%= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%>
+          <% end %>
+          <h4 class="name-title"><%= @user.first_name + ' ' + @user.last_name %></h3>
         </div>
+      </div>
+    </div>
 
-        <div class="row">
-          <div class="col mt-4">
-            <div class="d-flex">
-              <% if @user.photo.attached? %>
-              <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
-              <% else %>
-              <%= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%>
-              <% end %>
-              <h4 class="name-title"><%= @user.first_name + ' ' + @user.last_name %></h3>
-              </div>
+    <div class="row">
+      <div class="col mt-4">
+        <h5>Resume</h5>
+        <p><%= @user.bio %></p>
+      </div>
+    </div>
+    <% if @user != current_user  %>
+    <div class="row">
+      <div class="col mt-1 d-flex align-items-center m-2" style="flex-direction: row ">
+        <p><i class="fab fa-linkedin-in text-primary m-2" style="font-size: 2rem;"></i></p>
+        <p><i class="fab fa-instagram text-primary m-2" style="font-size: 2rem;"></i></p>
+      </div>
+    </div>
+    <% end %>
+
+    <% if current_user.id == @user.id %>
+      <div id="shots"></div>
+    <% end %>
+
+    <div class="row">
+      <div class="col mt-4">
+        <h5>Portfolio</h5>
+      </div>
+      <div class="flex">
+        <div class="d-flex flex-wrap justify-content-center" id="dribbble-shots">
+          <% @repos.each do |shot| %>
+            <div class="dribbble-card">
+              <img src="<%= shot["images"]["one_x"] %>" alt="" class="shot">
             </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<% else %>
+  <div class="container">
+    <div class="row">
+      <div class="col profile-banner bg-primary">
+        <h1 class="title text-white">Profile</h1>
+         <div class="justify-content-center">
+          <br>
+          <% if @user == current_user  %>
+            <%= link_to "Edit profile", edit_user_registration_path, class: 'text-white btn-primary2' %>
+            <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'text-white btn-primary2' %>
+          <% end %>
           </div>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col mt-5">
+        <div class="d-flex">
+          <% if @user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
+          <% else %>
+            <%= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%>
+          <% end %>
+          <h4 class="name-title"><%= @user.first_name + ' ' + @user.last_name %></h3>
+        </div>
+      </div>
+    </div>
 
-          <div class="row">
-            <div class="resume col mt-4 ">
-              <h4>Resume</h4>
-              <p>UX/UI Designer from San Jose with 10 year of experience.</p>
+    <div class="row">
+      <div class="col mt-4">
+        <h5>Resume</h5>
+        <p><%= @user.bio %></p>
+      </div>
+    </div>
+    <% if @user != current_user  %>
+      <div class="row mt-1">
+        <div class="col d-flex align-items-center" style="flex-direction: row ">
+          <p><i class="fab fa-linkedin-in text-primary m-2" style="font-size: 2rem;"></i></p>
+          <p><i class="fab fa-instagram text-primary m-2" style="font-size: 2rem;"></i></p>
+        </div>
+      </div>
+    <% end %>
 
-              <div class="row">
-                <div class="col mt-4">
-                  <h5>Resume</h5>
-                  <p>UX/UI Designer from San Jose with 10 year of experience.</p>
-                </div>
-
+    <div class="row p-0">
+        <div class="col mt-4">
+        <ul class="list p-0 w-100">
+          <h5>My projects</h5>
+        <% @user.projects.each do |project| %>
+              <div class="card-body d-flex justify-content-start w-100">
+                 <li> <%= link_to project.title , project_path(project), class: "btn btn-primary3 w-100" %></li>
               </div>
-
-
-              <div class="row">
-                <div class="links col pb-2 mt-4">
-                 <%= link_to "LinkedIn",  class:'fa fa-linkedin' %>
-
-                 <div class="row">
-                  <div class="col mt-4">
-                    <h5>Links</h5>
-                    <p>LinkedIn</p>
-                  </div>
-
-                </div>
-
-
-                <div class="row ">
-                  <div class="portfolio col mt-2 px-2 "><h4>Portfolio</h4></div>
-                  <div class="flex">
-                    <div class="d-flex flex-wrap justify-content-center">
-                      <div class="dribbble-card"></div>
-                      <div class="dribbble-card"></div>
-                      <div class="dribbble-card"></div>
-                      <div class="dribbble-card"></div>
-                      <div class="dribbble-card"></div>
-                      <div class="dribbble-card"></div>
-                      <div class="dribbble-card"></div>
-                      <div class="dribbble-card"></div>
-                      <div class="dribbble-card"></div>
-                      <div class="dribbble-card"></div>
-
-                      <% if current_user.id == @user.id %>
-                      <div id="shots"></div>
-                      <% end %>
-
-                      <div class="row">
-                        <div class="col mt-4">
-                          <h5>Portfolio</h5>
-                        </div>
-                        <div class="flex">
-                          <div class="d-flex flex-wrap justify-content-center" id="dribbble-shots">
-                            <% @repos.each do |shot| %>
-                            <div class="dribbble-card">
-                              <img src="<%= shot["images"]["one_x"] %>" alt="" class="shot">
-                            </div>
-                            <% end %>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-
-                    <% else %>
-                    <div class="container">
-                      <div class="row">
-                        <div class="col">
-                          <h1 class="title">Profile</h1>
-
-                          <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'log-out' %>
-                          <%= link_to "Edit profile", edit_user_registration_path, class: 'btn-primary' %>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <div class="col mt-4">
-                          <div class="d-flex">
-                            <% if @user.photo.attached? %>
-                            <%= cl_image_tag @user.photo.key, alt: "alttext", class: 'profil-pic' %>
-                            <% else %>
-                            <%= cl_image_tag ("logo_ddfsxd"), class: 'profil-pic'%>
-                            <% end %>
-                            <h4 class="name-title"><%= @user.first_name + ' ' + @user.last_name %></h3>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row">
-                          <div class="col mt-4">
-                            <h5>Resume</h5>
-                            <p>UX/UI Designer from San Jose with 10 year of experience.</p>
-                          </div>
-                        </div>
-
-                        <div class="row">
-                          <div class="col mt-4">
-                            <h5>Links</h5>
-                            <p>LinkedIn</p>
-                          </div>
-                        </div>
-
-                        <div class="row">
-                          <ul class="list">
-                            <% @user.projects.each do |project| %>
-                            <div class="card-body">
-                             <li> <%= link_to project.title , project_path(project), class: "btn btn-success" %></li>
-                           </div>
-                           <% end %>
-                         </div>
-                       </ul>
-
-                     </div>
-                   </div>
-
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-
-
-                   <% end %>
-
-
+              <% end %>
+        </div>
+      </div>
+      </ul>

@@ -1,7 +1,7 @@
 
 class Admin::ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_project, only: [:edit, :update]
+  before_action :set_project, only: [:edit, :update, :destroy]
   def index
     @projects = Project.all.where(user: current_user)
   end
@@ -29,6 +29,12 @@ class Admin::ProjectsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    set_project
+    @project.destroy
+    redirect_to projects_path
   end
 
   private
