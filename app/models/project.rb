@@ -10,7 +10,7 @@ class Project < ApplicationRecord
 
 include PgSearch::Model
   pg_search_scope :search_project,
-    against: [ :title, :description, ],
+    against: [ :title, :description ],
     using: {
       tsearch: { prefix: true }
     }

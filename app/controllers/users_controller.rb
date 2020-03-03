@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     @users = User.where(role: 1)
     if params[:query].present?
      @users = @users.search_by_query(params[:query])
-
    end
   end
 
