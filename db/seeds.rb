@@ -54,7 +54,7 @@ f.save!
 g = Project.new(title:"Sebastien's project", description:"It's about  a one year of hard work project, don't forget Ruby rules ! ", price: 600, progress: "pending", start: Date.new(2020,6,24) , deadline: Date.new(2020,8,24),)
 g.user = sebastien
 g.save!
-h = Project.new(title:"Bill's project", description:"A project for the future, many things to do in few times, we will look for the problems later ", price: 120, progress: "pending", start: Date.new(2020,3,17) , deadline: Date.new(2020,3,28,)
+h = Project.new(title:"Bill's project", description:"A project for the future, many things to do in few times, we will look for the problems later ", price: 120, progress: "pending", start: Date.new(2020,3,17) , deadline: Date.new(2020,3,28,),)
 h.user = bill
 h.save!
 
@@ -77,7 +77,7 @@ request2.save!
 
 request2 = Request.new(message: "Good morning Mister Saunier, your project reminds me my bootcamp, I want to work with you and your efficient team, 9 weeks is enough for me ! Greetings-- Anthony")
 request2.project = g
-request2.user = Anthony
+request2.user = anthony
 request2.save!
 
 request2 = Request.new(message: "Hi Bill your poject interests me but I have may questions about the merits, I love to get to the bottoms of things. Greetings -- Bertrand")
