@@ -1,6 +1,6 @@
 <!-- POUR LE CLIENT  -->
 <% if current_user.role == "client" %>
-  <div class="container bg-primary" style="height: 100%;">
+  <div class="container">
     <div class="row">
       <div class="col mt-1">
         <h1 class="title text-white">Requests</h1>
@@ -53,7 +53,7 @@
   <div style="height: 120px;"></div>
 <!-- POUR LES DESIGNERS -->
 <% else %>
-  <div class="container bg-primary" style="height: 100%;">
+  <div class="container">
     <div class="row">
       <div class="col mt-1">
         <h1 class="title text-white">Requests</h1>
@@ -105,5 +105,5 @@
       </div>
     </div>
   </div>
-  <div class="row bg-primary" style="height: 120px;"></div>
+  <div style="height: 120px;"></div>
 <% end %>
