@@ -1,0 +1,19 @@
+// .profile-banner {
+//   position: absolute;
+//   width: 375px;
+//   height: 199px;
+//   left: 0px;
+//   top: 0px;
+//   background-color: $new-my-color;
+// }
+
+.dashboard-banner {
+  background-color: $new-my-color;
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  height: 400px;
+  z-index: -1;
+  margin: 0;
+  padding: 0;
+}
