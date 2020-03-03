@@ -1,34 +1,30 @@
 <div class="container">
-  <div class="row">
+  <div class="row" style="background-color: #F1F3F6;">
     <div class="col mt-1">
       <div>
         <h1 class="title">Dashboard</h1>
       </div>
-
-<!-- FAIRE UN SCHEMA -->
-      <div class="mt-3">
+      <!-- FAIRE UN SCHEMA -->
+      <div class="mt-2">
         <h3 class="medium-title">My stats</h3>
         <%= image_tag "charts_rouge.png", alt: "alttext" %>
       </div>
     </div>
   </div>
-</div>
-<!-- LISTE DE TOUS LES PROJETS DU DESIGNER  -->
-<div class="dashboard-banner" style="height: 100%;">
-  <div class="row h-100">
-    <div class="col mt-1 h-100">
-      <h3 class="medium-title text-white ml-3 mt-3">My projects</h3>
+  <!-- LISTE DE TOUS LES PROJETS DU DESIGNER  -->
+  <div class="row">
+    <div class="col mt-1">
+      <h3 class="medium-title text-white mt-3">My projects</h3>
     </div>
   </div>
-  <div class="container">
     <% @projects.each do |project| %>
-    <%= link_to project_path(project) do %>
+      <%= link_to project_path(project) do %>
       <div class="row mt-3 projects-card" style="color: #8C8C95">
         <div class="column">
           <% if project.user.photo.attached? %>
-            <%= cl_image_tag project.user.photo.key, alt: "alttext", class: 'projects-card-img' %>
+          <%= cl_image_tag project.user.photo.key, alt: "alttext", class: 'projects-card-img' %>
           <% else %>
-            <%= image_tag "spiice.jpg", class: 'projects-card-img' %>
+          <%= image_tag "spiice.jpg", class: 'projects-card-img' %>
           <% end %>
         </div>
         <div class="column">
@@ -39,10 +35,6 @@
       </div>
     <% end %>
   <% end %>
-  </div>
-
 </div>
+<div style="height: 130px;">
 </div>
-  <div class="row bg-primary" style="height: 130px;">
-</div>
-

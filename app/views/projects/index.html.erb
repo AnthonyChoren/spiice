@@ -1,42 +1,43 @@
 <!-- TOUS LES PROJETS DU CLIENT -->
-
 <div class="container bg-primary" style="height: 100vh;">
   <div class="row">
     <div class="col mt-1">
       <div>
         <h1 class="title text-white" style="bottom: 20px; height: 60px;">Projects</h1>
       </div>
-        <!-- search bar for designers -->
-   <%= form_tag projects_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a project"
-        %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
-<!-- end of search bar for designers -->
     </div>
   </div>
-  <% @projects.each do |project| %>
-    <%= link_to project_path(project) do %>
-      <div class="row mt-3 projects-card" style="color: #8C8C95">
-        <div class="column">
-          <% if project.user.photo.attached? %>
-            <%= cl_image_tag project.user.photo.key, alt: "alttext", class: 'projects-card-img' %>
-          <% else %>
-            <%= image_tag "spiice.jpg", class: 'projects-card-img' %>
-          <% end %>
-        </div>
-        <div class="column">
-          <p class="projects-card-text"><%= project.description %></p>
-          <h4 class="projects-card-title"><%= project.title %></h4>
-          <p class="projects-card-price"><%= project.price %>$</p>
-        </div>
+  <div class="row">
+<!-- search bar for designers -->
+    <%= form_tag projects_path, method: :get, class: 'form-project' do %>
+      <div class="col">
+        <%= text_field_tag :query, params[:query], class: "form-control form-project", placeholder: "Find a project" %>
+      </div>
+      <div class="col">
+        <%= submit_tag "Search", class: "btn btn-search" %>
       </div>
     <% end %>
-  <% end %>
-  <div class="row bg-primary" style="height: 120px;">
+<!-- end of search bar for designers -->
+  </div>
+    <% @projects.each do |project| %>
+      <%= link_to project_path(project) do %>
+        <div class="row mt-3 projects-card" style="color: #8C8C95">
+          <div class="column">
+            <% if project.user.photo.attached? %>
+              <%= cl_image_tag project.user.photo.key, alt: "alttext", class: 'projects-card-img' %>
+            <% else %>
+              <%= image_tag "spiice.jpg", class: 'projects-card-img' %>
+            <% end %>
+          </div>
+          <div class="column">
+            <p class="projects-card-text"><%= project.description %></p>
+            <h4 class="projects-card-title"><%= project.title %></h4>
+            <p class="projects-card-price"><%= project.price %>$</p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <div style="height: 120px;">
   </div>
 </div>
 
