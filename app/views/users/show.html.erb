@@ -33,13 +33,14 @@
         <p><%= @user.bio %></p>
       </div>
     </div>
-
+    <% if @user != current_user  %>
     <div class="row">
-      <div class="col mt-4 d-flex align-items-center m-2" style="flex-direction: row ">
-        <p><i class="fab fa-linkedin-in text-primary m-2"></i></p>
-        <p><i class="fab fa-instagram text-primary m-2"></i></p>
+      <div class="col mt-1 d-flex align-items-center m-2" style="flex-direction: row ">
+        <p><i class="fab fa-linkedin-in text-primary m-2" style="font-size: 2rem;"></i></p>
+        <p><i class="fab fa-instagram text-primary m-2" style="font-size: 2rem;"></i></p>
       </div>
     </div>
+    <% end %>
 
     <% if current_user.id == @user.id %>
       <div id="shots"></div>
@@ -101,12 +102,14 @@
         <p><%= @user.bio %></p>
       </div>
     </div>
-    <div class="row">
-      <div class="col d-flex align-items-center" style="flex-direction: row ">
-        <p><i class="fab fa-linkedin-in text-primary m-2"></i></p>
-        <p><i class="fab fa-instagram text-primary m-2"></i></p>
+    <% if @user != current_user  %>
+      <div class="row mt-1">
+        <div class="col d-flex align-items-center" style="flex-direction: row ">
+          <p><i class="fab fa-linkedin-in text-primary m-2" style="font-size: 2rem; color: #ED7074"> Linked In</i></p>
+          <p><i class="fab fa-instagram text-primary m-2" style="font-size: 2rem;"></i></p>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <div class="row p-0">
         <div class="col mt-4">
