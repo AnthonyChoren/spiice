@@ -54,11 +54,23 @@ class RequestsController < ApplicationController
       redirect_to requests_path
     end
 
-  # def print_accepted
-  #   request = Request.find(params[:id])
-  #   status = @request.status
-  #   accepted = status == 1 ? " [x]" : "[ ]"
-  # end
+  def notification_accepted
+    #as soon as request is accepted
+      #a textfield is shown on dashboard of client
+      #the project and a notification circle is shown on dashboard of designer
+    #when you click on textfield you show the request and delete the textfield
+    #when you click on the project you see the project and the notification circle will be delete
+  end
+
+  def notification_refused
+    #??
+  end
+
+  def notification_new_request
+  #as soon a new request is made
+      #a textfield is shown on dashboard of client
+  #when you click the on the textfield you see the request and the field will be deleted
+  end
 
   def destroy
     set_request
