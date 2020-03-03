@@ -1,9 +1,12 @@
 // Import Google fonts
+// HEADER FONT
 @import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,500,700,900|Red+Hat+Text:400,400i,500,700&display=swap');
+// BODY FONT
+@import url('https://fonts.googleapis.com/css?family=Public+Sans:300,400,500,600,700&display=swap');
 
 
 // Define fonts for body and headers
-$body-font: "Red Hat Display", "Helvetica", "sans-serif";
+$body-font: "Public Sans", "Helvetica", "sans-serif";
 $headers-font: "Red Hat Display", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines

@@ -1,0 +1,29 @@
+<% if current_user.role == "client" %>
+<!-- SI PAS ENCORE CHOISI -->
+  <% if request.status == "pending" %>
+        <div class="col">
+          <%= link_to edit_request_path(request) do %>
+            <input method="get" url="edit_request_path"> Accept
+          <% end %>
+        </div>
+        <div class="col">
+          <%= link_to "Refuse", request_refuse_path(request, request: { request_id: request.id, decision: 'rejection' }), data: { confirm: 'Are you sure?'}, method: :patch %>
+        </div>
+      </div>
+  <% elsif request.status == "refused" %>
+  <!-- SI REFUSE -->
+    <div class="row">
+      <div class="col">
+        <input> Refused
+      </div>
+    </div>
+  <% else %>
+  <!-- SI ACCEPTE -->
+    <div class="row">
+      <div class="col">
+        <input> Accepted
+      </div>
+    </div>
+  <% end %>
+<% end %>
+

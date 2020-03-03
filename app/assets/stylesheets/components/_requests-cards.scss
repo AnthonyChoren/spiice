@@ -1,0 +1,108 @@
+.request-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.04);
+}
+
+.request-card-date {
+  font-size: 12px;
+  color: #93939F;
+}
+
+.request-card-title {
+  font-size: 20px;
+  color: #001D2B;
+  font-family: Red Hat Display;
+}
+
+.request-card-upper-text {
+  font-weight: 500;
+  font-size: 14px;
+  color: #001D2B;
+}
+
+.request-card-text {
+  color: #929292;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 160%;
+}
+
+.request-card-button {
+  font-weight: 500;
+  font-size: 16px;
+  text-align: right;
+  color: #EE6D66;
+  right: 0px;
+  right: -20px;
+  position: absolute;
+}
+
+.request-card-email {
+  align-items: center;
+  text-align: center;
+  color: #001D2B;
+  font-size: 16px;
+}
+
+.request-card-choice {
+  text-align: center;
+  color: white;
+  font-weight: 500;
+}
+
+.request-card-choice-accept {
+  padding-right: 0;
+}
+
+.request-card-choice-decline {
+  padding-left: 0;
+}
+
+.request-card-choice p {
+  padding: 12px;
+  margin: 16px;
+  border-radius: 8px;
+}
+
+.accept a p {
+  background-color: #ee8f66;
+  color: white;
+  border:2px solid #ee8f66;
+}
+
+.decline a p {
+  background-color: white;
+  color: #ee8f66;
+  border:2px solid #ee8f66;
+}
+
+.choice {
+  text-align: center;
+  // margin-left: 64px;
+  // margin-right: 64px;
+  padding: 8px;
+  border-radius: 8px;
+  right: 0px;
+  right: -40px;
+  text-align: right;
+  position: absolute;
+}
+
+.choice-pending {
+  color: #565669;
+  font-weight: 500;
+  border: 2px dashed #565669;
+}
+
+.choice-accept {
+  color: green;
+  font-weight: 500;
+  border: 2px dashed green;
+}
+
+.choice-decline {
+  color: red;
+  font-weight: 500;
+  border: 2px solid red;
+}
