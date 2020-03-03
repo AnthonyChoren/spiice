@@ -20,7 +20,8 @@
       <h3 class="medium-title text-white ml-3 mt-3">My projects</h3>
     </div>
   </div>
-  <% @projects.each do |project| %>
+  <div class="container">
+    <% @projects.each do |project| %>
     <%= link_to project_path(project) do %>
       <div class="row mt-3 projects-card" style="color: #8C8C95">
         <div class="column">
@@ -38,4 +39,10 @@
       </div>
     <% end %>
   <% end %>
+  </div>
+
 </div>
+</div>
+  <div class="row bg-primary" style="height: 130px;">
+</div>
+
