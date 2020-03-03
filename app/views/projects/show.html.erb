@@ -56,20 +56,28 @@
 
   <!-- ACTIONS SELON LES ROLES  -->
 
-        <div>
-          <% if current_user.role == "client" %>
+
+      <div>
+        <% if current_user.role == "client" %>
+          <div class="mt-4">
+            <%= link_to 'View the propositions', requests_path(@project), class: 'btn btn-primary2' %>
+          </div>
+          <div class="mt-4">
+            <%= link_to "Update", edit_admin_project_path(@project), class: "btn btn-primary3"%>
+          </div>
+            <% if current_user.id = @project.user.id %>
             <div class="mt-4">
-              <%= link_to 'View the propositions', requests_path(@project), class: 'btn btn-primary2' %>
-            </div>
-            <div class="mt-4">
-              <%= link_to "Update", edit_admin_project_path(@project), class: "btn btn-primary3"%>
-            </div>
-            <% else %>
-            <div class="mt-4">
-              <%= link_to "Make a request for this project", new_project_request_path(@project), class: "btn btn-primary2"%>
-            </div>
-          <% end %>
-        </div>
+              <%= link_to "Cancel project", admin_project_path(@project),
+              method: :delete, data: { confirm: "Are you sure?" },
+              class: "btn btn-primary3"%>
+             <% end %>
+          </div>
+          <% else %>
+          <div class="mt-4">
+            <%= link_to "Make a request for this project", new_project_request_path(@project), class: "btn btn-primary2"%>
+          </div>
+        <% end %>
+
       </div>
     </div>
   </div>

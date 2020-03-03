@@ -4,11 +4,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
+    @users = User.where(role: 1)
     if params[:query].present?
-     @users = User.search(params[:query])
-     # redirect_to search_index_path
-   else
-     @users = User.where(role: 1)
+     @users = @users.search_by_query(params[:query])
    end
   end
 

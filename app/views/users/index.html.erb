@@ -7,8 +7,16 @@
     </div>
   </div>
   <div class="row d-flex align-items-center" style="flex-direction: column">
-    <input type=”text” name=”query” id=”query” placeholder="I want to find…">
-    <input type=”submit” name=”commit” value=“Search” class="btn btn-primary">
+<!-- search bar for designers -->
+   <%= form_tag users_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a project"
+        %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+<!-- end of search bar for designers -->
   </div>
   <% @users.each do |user| %>
     <%= link_to user_path(user) do %>

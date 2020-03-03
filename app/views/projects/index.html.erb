@@ -6,6 +6,16 @@
       <div>
         <h1 class="title text-white" style="bottom: 20px; height: 60px;">Projects</h1>
       </div>
+        <!-- search bar for designers -->
+   <%= form_tag projects_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a project"
+        %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+<!-- end of search bar for designers -->
     </div>
   </div>
   <% @projects.each do |project| %>
