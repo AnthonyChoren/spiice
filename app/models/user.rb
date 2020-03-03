@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :propositions, through: :projects, source: :requests
+  has_many :applies, -> { distinct }, through: :requests, source: :project
   has_one_attached :photo
   # validates :first_name, presence: true
   # validates :last_name, presence: true
