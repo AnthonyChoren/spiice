@@ -1,84 +1,109 @@
-<div class="container bg-primary" style="height: 100%;">
-  <% if current_user.role == "client" %>
+<!-- POUR LE CLIENT  -->
+<% if current_user.role == "client" %>
+  <div class="container bg-primary" style="height: 100%;">
     <div class="row">
-      <div class="col mt-2">
-        <div>
-          <h3 class="medium-title text-white mt-4">Your propositions for projects</h3>
-        </div>
+      <div class="col mt-1">
+        <h1 class="title text-white">Requests</h1>
       </div>
     </div>
-    <div class="container d-flex align-items-center" style="flex-direction: column ">
-      <% @requests.where(status: 1).or(@requests.where(status: 0)).each do |request|  %>
-
-        <div class="container d-flex align-items-center" style="flex-direction: column ">
-          <div class="card-project user-card h-100 w-100 m-2 linkable">
-            <div class="card-body">
-              <p class="card-title"> <strong> Request for "<%= request.project.title %>"</strong> </p>
-              <p class="card-text">Message: "<%= request.message %>"</p>
-
-                <p class="card-text"><em>Request by <%= request.user.first_name %> <%= request.user.last_name %></em> </p>
-                <p class="card-text"><em>Contact: <%= request.user.email %></em> </p>
-                <%= link_to "Profile of designer", user_path(request.user), class: "btn btn-primary"%>
-                <br>
-                <hr>
-                <%= render 'requests/accept_button', project: @project, request: request %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-
-
-  <% else %>
-      <div class="row">
-      <div class="col mt-3">
-        <div>
-          <h3 class="medium-title text-white text-center">Your requests for projects</h3>
-        </div>
-      </div>
-    </div>
-    <div class="container d-flex align-items-center" style="flex-direction: column ">
-      <% @requests.each do |request|  %>
-
-        <div class="container d-flex align-items-center" style="flex-direction: column ">
-          <div class="card-project user-card h-100 w-100 m-2 linkable">
-            <div class="card-body">
-              <div class=" d-flex justify-content-end">
-                <% if current_user.role == "designer" %>
-                  <p class="card-title"> <strong>
-                  <% if request.status == "accepted"  %>
-                    <p class="status-card" style="color: green; opacity: 0.7;"><%= request.status.upcase %> </p>
-                  <% elsif request.status == "refused" %>
-                    <p class="status-card" style="color: red; opacity: 0.6;"><%= request.status.upcase %> </p>
-                  <% else %>
-                    <p class="status-card" style="opacity: 0.7;"><em><%= request.status.upcase %> </em> </p>
-                  <% end %>
-                </strong> </p>
-                <% end %>
+    <div class="row mt-3">
+      <div class="col">
+        <% if current_user.role == "client" %>
+          <% @requests.where(status: 1).or(@requests.where(status: 0)).each do |request| %>
+            <div class="request-card mb-4">
+              <div class="row">
+                <div class="col-4 request-card-date m-4">
+                  <p><%= request.created_at.strftime("%b %d, %Y") %></p>
+                </div>
+                <div class="col-4 m-4">
+                  <%= link_to "View profil", user_path(request.user), class: "request-card-button" %>
+                </div>
               </div>
-              <p class="card-title"> <strong> Request for "<%= request.project.title %>"</strong> </p>
-              <p class="card-text">Message: "<%= request.message %>"</p>
-              <% if current_user.role == "client" %>
-                <p class="card-text"><em>Request by <%= request.user.first_name %> <%= request.user.last_name %></em> </p>
-                <p class="card-text"><em>Contact: <%= request.user.email %></em> </p>
-                <%= link_to "Profile of designer", user_path(request.user), class: "btn btn-primary"%>
-                <br>
-                <hr>
-                <%= render 'requests/accept_button', project: @project, request: request %>
-              <% else %>
-                <hr>
-                <p class="card-text">Requested at <em><%= request.created_at %> </em> </p>
-                <%= link_to "View project", project_path(request.project), class: "btn btn-primary2 w-100"%>
-              <% end %>
+              <div class="request-card-upper-text pt-1 pl-4">
+                <p><%= request.project.title %></p>
+              </div>
+              <div class="request-card-title pl-4">
+                <h4><%= request.project.user.first_name %> <%= request.project.user.last_name %></h4>
+              </div>
+              <div class="request-card-text pl-4">
+                <p>"<%= request.message %>"</p>
+              </div>
+              <!-- SEULEMENT SI VALIDE -->
+             <!--  <div class="request-card-email">
+                <p><strong>Contact:</strong><br/><%= request.user.email %></p>
+              </div> -->
+              <div class="row">
+                <div class="col-6 request-card-choice request-card-choice-accept accept">
+                  <%= link_to edit_request_path(request) do %>
+                    <p>Accept</p>
+                  <% end %>
+                </div>
+                <div class="col-6 request-card-choice request-card-choice-decline decline">
+                  <%= link_to request_refuse_path(request, request: { request_id: request.id, decision: 'rejection' }), data: { confirm: 'Are you sure?'}, method: :patch do %>
+                    <p>Decline</p>
+                  <% end %>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      <% end %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-
-  <% end %>
-</div>
-  <div class="row bg-primary" style="height: 120px;">
-</div>
-
+  </div>
+  <div style="height: 120px;"></div>
+<!-- POUR LES DESIGNERS -->
+<% else %>
+  <div class="container bg-primary" style="height: 100%;">
+    <div class="row">
+      <div class="col mt-1">
+        <h1 class="title text-white">Requests</h1>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <% if current_user.role == "designer" %>
+          <% @requests.where(status: 1).or(@requests.where(status: 0)).each do |request| %>
+            <div class="request-card mb-4">
+              <div class="row">
+                <div class="col-4 request-card-date m-4">
+                  <p><%= request.created_at.strftime("%b %d, %Y") %></p>
+                </div>
+                <div class="col-4 m-4">
+                  <% if current_user.role == "designer" %>
+                    <% if request.status == "accepted"  %>
+                      <div class="col">
+                        <p class="choice-accept choice"><%= request.status.upcase %></p>
+                      </div>
+                    <% elsif request.status == "refused" %>
+                      <div class="col">
+                        <p class="choice-decline choice"><%= request.status.upcase %></p>
+                      </div>
+                    <% else %>
+                      <div class="col">
+                        <p class="choice-pending choice"><%= request.status.upcase %></p>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="request-card-upper-text pt-1 pl-4">
+                <p><%= "#{request.project.user.first_name} #{request.project.user.last_name}" %></p>
+              </div>
+              <div class="request-card-title pl-4">
+                <h4><%= request.project.title %></h4>
+              </div>
+              <div class="request-card-text pl-4 pb-4">
+                <p>"<%= request.message %>"</p>
+              </div>
+              <!-- SEULEMENT SI VALIDE -->
+             <!--  <div class="request-card-email">
+                <p><strong>Contact:</strong><br/><%= request.user.email %></p>
+              </div> -->
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row bg-primary" style="height: 120px;"></div>
+<% end %>

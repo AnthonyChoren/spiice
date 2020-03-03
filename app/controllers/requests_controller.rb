@@ -9,7 +9,7 @@ class RequestsController < ApplicationController
     else
       @requests = current_user.requests
     end
-    #@projects = @requests.project
+    # @projects = @requests.project
   end
 
   def show
