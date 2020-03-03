@@ -1,9 +1,9 @@
 <!-- POUR LE CLIENT  -->
 <% if current_user.role == "client" %>
-  <div class="container">
+  <div class="container bg-primary" style="height: 100%;">
     <div class="row">
       <div class="col mt-1">
-        <h1 class="title">Requests</h1>
+        <h1 class="title text-white">Requests</h1>
       </div>
     </div>
     <div class="row mt-3">
@@ -53,10 +53,10 @@
   <div style="height: 120px;"></div>
 <!-- POUR LES DESIGNERS -->
 <% else %>
-  <div class="container">
+  <div class="container bg-primary" style="height: 100%;">
     <div class="row">
       <div class="col mt-1">
-        <h1 class="title">Requests</h1>
+        <h1 class="title text-white">Requests</h1>
       </div>
     </div>
     <div class="row mt-3">
@@ -70,20 +70,20 @@
                 </div>
                 <div class="col-4 m-4">
                   <% if current_user.role == "designer" %>
-                  <% if request.status == "accepted"  %>
-                    <div class="col">
-                      <p class="choice-accept choice"><%= request.status.upcase %></p>
-                    </div>
-                  <% elsif request.status == "refused" %>
-                    <div class="col">
-                      <p class="choice-decline choice"><%= request.status.upcase %></p>
-                    </div>
-                  <% else %>
-                    <div class="col">
-                      <p class="choice-pending choice"><%= request.status.upcase %></p>
-                    </div>
+                    <% if request.status == "accepted"  %>
+                      <div class="col">
+                        <p class="choice-accept choice"><%= request.status.upcase %></p>
+                      </div>
+                    <% elsif request.status == "refused" %>
+                      <div class="col">
+                        <p class="choice-decline choice"><%= request.status.upcase %></p>
+                      </div>
+                    <% else %>
+                      <div class="col">
+                        <p class="choice-pending choice"><%= request.status.upcase %></p>
+                      </div>
+                    <% end %>
                   <% end %>
-                <% end %>
                 </div>
               </div>
               <div class="request-card-upper-text pt-1 pl-4">
@@ -105,6 +105,5 @@
       </div>
     </div>
   </div>
-  <div style="height: 120px;"></div>
+  <div class="row bg-primary" style="height: 120px;"></div>
 <% end %>
-

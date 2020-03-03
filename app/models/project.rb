@@ -7,4 +7,12 @@ class Project < ApplicationRecord
   # validates :start, presence: true, numericality: true
   # validates :deadline, presence: true, numericality: true, date: { after: :start, message: 'must be after your start date' }
   validates :price, presence: true
+
+include PgSearch::Model
+  pg_search_scope :search_project,
+    against: [ :title, :description ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end
