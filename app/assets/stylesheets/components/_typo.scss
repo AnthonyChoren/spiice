@@ -12,6 +12,18 @@
 
 }
 
+.big-title {
+  font-size: 80px;
+  text-align: center;
+  margin-top: 240px;
+  margin-bottom: 190px;
+  letter-spacing: -0.04em;
+}
+
+.medium-title {
+  font-weight: 500;
+}
+
 .name-title {
   font-weight: bold;
   margin-top: 6px;
@@ -52,4 +64,7 @@
   box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.04);
   margin: 8px;
    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.25), 0 6px 6px 0 rgba(0,0,0,0.20);
+
+
 }
+

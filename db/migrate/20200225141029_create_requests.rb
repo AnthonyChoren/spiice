@@ -5,8 +5,7 @@ class CreateRequests < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.boolean :accepted
       t.date :created_at
-      t.string :status
-
+      t.integer :status, default: 0, null: false
       t.timestamps
     end
   end

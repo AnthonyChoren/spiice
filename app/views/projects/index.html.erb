@@ -1,27 +1,31 @@
-<!-- Code de Gregoire -->
-<h1>Project#index</h1>
-<p>Find me in app/views/project/index.html.erb</p>
+<!-- TOUS LES PROJETS DU CLIENT -->
 
-<div  class="container ">
-  <div  class="col-sm-8 offset-sm-2">
-    <% @projects.each do |project| %>
-    <div class="row"  >
-      <div class="card mt-5" >
-        <div class="card-header">
-          <%= project.title %>
+<div class="container">
+  <div class="row">
+    <div class="col mt-1">
+      <div>
+        <h1 class="title">Projects</h1>
+      </div>
+    </div>
+  </div>
+  <% @projects.each do |project| %>
+    <%= link_to project_path(project) do %>
+      <div class="row mt-3 projects-card" style="color: #8C8C95">
+        <div class="column">
+          <% if project.user.photo.attached? %>
+            <%= cl_image_tag project.user.photo.key, alt: "alttext", class: 'projects-card-img' %>
+          <% else %>
+            <%= image_tag "spiice.jpg", class: 'projects-card-img' %>
+          <% end %>
+        </div>
+        <div class="column">
+          <p class="projects-card-text"><%= project.description %></p>
+          <h4 class="projects-card-title"><%= project.title %></h4>
+          <p class="projects-card-price"><%= project.price %>$</p>
         </div>
       </div>
-          <div class="card-body">
-            <h5 class="card-title">Progress : <%= project.progress %></h5>
-            <p class="card-text">Price : <%= project.price %></p>
-            <p class="card-text">Description :<%= project.description %></p>
-            <p class="card-text">Start Time :<%= project.start %></p>
-            <p class="card-text">End Time :<%= project.deadline %></p>
-            <%= link_to "Project details", project_path(project), class: "btn btn-primary" %>
-      </div>
-       </div>
-    </div>
+    <% end %>
   <% end %>
-  </div>
+  <div class="row" style="height: 120px;">
 </div>
 

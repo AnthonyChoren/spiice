@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :propositions, through: :projects, source: :requests
-
+  has_one_attached :photo
   # validates :first_name, presence: true
   # validates :last_name, presence: true
   # # validates :bio, presence: true, length: { maximum: 500 }
@@ -16,9 +16,16 @@ class User < ApplicationRecord
   # # validates :company, presence: true
   # validates :city, presence: true
   # # validates :country_code, presence: true
-   validates :role, presence: true
+  validates :role, presence: true
 
   enum role: { client: 0, designer: 1 }
 
-  has_one_attached :photo
+  include PgSearch::Model
+  pg_search_scope :search_by_query,
+    against: [ :bio, :first_name, :last_name ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
+
 end

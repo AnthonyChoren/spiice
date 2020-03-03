@@ -1,34 +1,32 @@
-<div class="container text-center mt-5" >
- <h1>The Best Designers</h1>
- <div class="row justify-content-center  mt-5 ">
-  <h3>Find the right mate</h3>
-    <div class="col-xs-12 col-sm-10 mt-3 px-5 ">
-      <% @users.each do |user| %>
-        <div class="user-card list-group-item d-flex flex-row mb-3 border ">
-          <div class="photo w-25 ">
-            <%= image_tag 'logo.png', size: "150"  %>
-            <!-- <img src="avatar.jpg" alt="Designer"> -->
-          </div>
-          <div class="user-infos d-flex flex-column justify-content-center w-75
-          ">
-            <div class="user-name">
-              <p>
-                <%= user.first_name %>
-                <%= user.last_name %>
-              </p>
-            </div>
-            <div class="user-bio">
-              <p>
-                <%= user.bio %>
-              </p>
-              <%= link_to 'Take a look !', user_path, class: "btn btn-primary" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+<!-- ALL DESIGNERS  -->
+
+<div class="container">
+  <div class="row">
+    <div class="col mt-1">
+      <h1 class="title">All designers</h1>
     </div>
   </div>
-</div>
-</div>
-</div>
+  <div class="row d-flex align-items-center" style="flex-direction: column">
+    <input type=”text” name=”query” id=”query” placeholder="I want to find…">
+    <input type=”submit” name=”commit” value=“Search” class="btn btn-primary">
+  </div>
+  <% @users.each do |user| %>
+    <%= link_to user_path(user) do %>
+      <div class="row mt-3 projects-card" style="color: #8C8C95">
+        <div class="col-2 d-flex justify-content-center">
+          <% if user.photo.attached? %>
+            <%= cl_image_tag user.photo.key, alt: "alttext", class: 'designers-card-avatar' %>
+          <% else %>
+            <%= image_tag "spiice.jpg", class: 'designers-card-avatar' %>
+          <% end %>
+        </div>
+        <div class="col-10">
+          <h4 class="designers-card-title "><%= "#{user.first_name.capitalize} #{user.last_name.capitalize}" %></h4>
+          <p class="designers-card-text"><%= user.bio %>$</p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="row" style="height: 120px;">
+  </div>
 </div>
