@@ -3,11 +3,13 @@ class RequestsController < ApplicationController
   before_action :set_request, only: [:edit, :update]
 
   def index
-
-    if current_user.role == "client"
-      @requests = current_user.propositions
-    else
-      @requests = current_user.requests
+      if current_user.role == "client"
+        @requests = current_user.propositions
+        @requests.each do |request|
+          request.update(visited: true)
+        end
+      else
+        @requests = current_user.requests
     end
     #@projects = @requests.project
   end
@@ -29,7 +31,7 @@ class RequestsController < ApplicationController
     @request.project = Project.find(params[:project_id])
     @request.user = current_user
     if @request.save
-      redirect_to requests_path
+      redirect_to requests_path, notice: 'Request was successfully created.'
     else
       render 'new'
     end

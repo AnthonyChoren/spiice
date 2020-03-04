@@ -14,7 +14,7 @@ class Admin::ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
-      redirect_to project_path(@project)
+      redirect_to project_path(@project), notice: 'Project was successfully created.'
     else
       render 'new'
     end

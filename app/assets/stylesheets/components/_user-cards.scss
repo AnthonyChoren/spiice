@@ -86,3 +86,38 @@
   padding: 8px 24px;
   border-radius: 50px;
 }
+
+.card-tags {
+  position: absolute;
+  width: 80%;
+  padding: 8px;
+
+    span {
+      background: $blue;
+      font-size: .7em;
+      padding: 2px 4px;
+      border-radius: 3px;
+      margin-right: 4px;
+    }
+
+    a {
+      color: white;
+    }
+  }
+
+  .dot-request {
+    position: absolute;
+    right: 120px;
+    bottom: 50px !important;
+    height: 20px !important;
+    width: 20px !important;
+    background-color: red;
+    border-radius: 50%;
+    text-align: center !important;
+    // font-weight: bold;
+    font-size: 12px !important;
+    bottom: 30px;
+    z-index: 400;
+    padding: 5px 10px;
+    color: white;
+  }
