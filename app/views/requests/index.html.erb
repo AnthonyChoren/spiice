@@ -11,9 +11,20 @@
         <% if current_user.role == "client" %>
 <!-- iltre par projet -->
 <!-- status: { pending: 0, accepted: 1, refused: 2 -->
+        <div class="dropdown show">
+          <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Projects
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <% @requests.where(status: 1).or(@requests.where(status: 0)).each do |request| %>
+               <p class="dropdown-item"><%=link_to request.project.title, request_path(request) %></p>
+                      <% end %>
+          </div>
+        </div>
         <div>
               <% @requests.where(status: 1).or(@requests.where(status: 0)).each do |request| %>
-              <h2> <%= request.project.title %> </h2>
+              <h2> <%= link_to request.project.title, request_path(request), class: "text-white" %> </h2>
                   <div class="request-card mb-4">
                     <div class="row">
                       <div class="col-4 request-card-date m-4">
