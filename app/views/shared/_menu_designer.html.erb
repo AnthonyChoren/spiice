@@ -12,8 +12,12 @@
         <% end %>
       </div>
       <div>
+        <% if (current_user.requests.where(seen: false)).count > 0 %>
+          <span class='dot-request' style="background-color: #7EBA65;"><%=  (current_user.requests.where(seen: false) && current_user.requests.where(status: "accepted")).count %></span>
+        <% end %>
         <%= link_to requests_path do %>
-          <i class="ri-discuss-line <%= 'active' if current_page?(requests_path) %>"></i>
+          <i class="ri-discuss-line <%= 'active' if current_page?(requests_path) %>">
+          </i>
         <% end %>
       </div>
       <div>
