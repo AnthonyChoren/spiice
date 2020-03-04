@@ -9,7 +9,7 @@
     <div class="row mt-3">
       <div class="col">
         <% if current_user.role == "client" %>
-<!-- iltre par projet -->
+<!-- filtre par projet -->
 <!-- status: { pending: 0, accepted: 1, refused: 2 -->
         <div class="dropdown show">
           <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,6 +48,11 @@
                       <p><strong>Contact:</strong><br/><%= request.user.email %></p>
                     </div> -->
                     <div class="row">
+                     <% if request.status == "accepted" %>
+                      <div class="col-6 request-card-choice request-card-choice-accept accept">
+                        <p>Accepted</p>
+                      </div>
+                     <% else %>
                       <div class="col-6 request-card-choice request-card-choice-accept accept">
                         <%= link_to edit_request_path(request) do %>
                           <p>Accept</p>
@@ -58,12 +63,12 @@
                           <p>Decline</p>
                         <% end %>
                       </div>
-                    </div>
                   </div>
               <% end %>
             <% end %>
           </div>
         </div>
+
       </div>
     </div>
   <div style="height: 120px;"></div>
