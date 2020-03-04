@@ -10,7 +10,7 @@
           <h3 class="medium-title text-white">My projects</h3>
         </div>
         <div>
-          <%= link_to "Add a new project", new_admin_project_path, class: "btn btn-primary3"%>
+          <%= link_to "Add a new project", new_admin_project_path, class: "btn easy-btn"%>
         </div>
       </div>
       <!-- search bar for projects -->
@@ -22,7 +22,6 @@
         %>
       <%# submit_tag "Search", class: "btn btn-primary" %>
     <%# end %>
-
     </div>
   </div>
   <% @projects.each do |project| %>

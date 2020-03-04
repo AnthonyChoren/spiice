@@ -27,10 +27,20 @@
   text-align: center;
 }
 
+.easy-btn {
+  width: 100%;
+  // background-color: #5F48F8;
+  background-color: #ffc3c5;
+  color: #9b5355;
+  border-radius: 50px;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
 .btn-back a {
   text-decoration: none;
 }
-
 
 .btn-back:hover {
   opacity: 0.9;
@@ -44,7 +54,6 @@
 .fa:hover {
   opacity: 0.2;
 }
-
 
 .align-icon {
   align-items: center;

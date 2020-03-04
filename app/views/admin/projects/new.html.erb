@@ -1,44 +1,48 @@
-<div class="pl-2 pb-0 mt-2 d-flex justify-content-start align-items-center">
-  <a href="<%= projects_path %>" class="ri-arrow-left-circle-line back-icon"></a>
-  <div>
-    <%= link_to "Back", projects_path, class: "btn-back pl-1" %>
+<div class="container">
+  <div class="row">
+    <div class="col mb-3 mt-3 ml-2">
+      <%= link_to projects_path do  %>
+        <div class="row mt-2">
+          <i class="ri-arrow-left-line back-icon" style="color: white;"></i>
+          <h4 style="margin-top: 10px; margin-left: 8px; color: white;">Back</h4>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
-<div class="m-3">
-  <h2>New Project</h2>
-</div>
-
-<div class="m-3">
-  <%= simple_form_for [@project], url: admin_projects_path, method: :post do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :title,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "title" }%>
-    <%= f.input :description,
-                required: true,
-                input_html: { autocomplete: "description" } %>
-    <%= f.input :price,
-                required: true,
-                input_html: { autocomplete: "price" } %>
-    <%= f.input :start,
-                required: true,
-                input_html: { autocomplete: "start project" } %>
-    <%= f.input :deadline,
-                required: true,
-                input_html: { autocomplete: "deadline" } %>
+  <div class="row">
+    <div class="col m-3">
+      <h2 class="update-title">New Project</h2>
+    </div>
   </div>
+  <div class="row">
+    <div class="col m-3">
+      <%= simple_form_for [@project], url: admin_projects_path, method: :post do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Create a new project", class: "btn btn-primary" %>
-    <%= link_to 'Cancel', admin_projects_path, class: 'btn btn-primary'  %>
-  </div>
-<% end %>
+        <div class="form-inputs text-white">
+          <%= f.input :title,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "title" }%>
+          <%= f.input :description,
+                      required: true,
+                      input_html: { autocomplete: "description" } %>
+          <%= f.input :price,
+                      required: true,
+                      input_html: { autocomplete: "price" } %>
+          <%= f.input :start,
+                      required: true,
+                      input_html: { autocomplete: "start project" } %>
+          <%= f.input :deadline,
+                      required: true,
+                      input_html: { autocomplete: "deadline" } %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Create a new project", class: "btn btn-primary" %>
+          <%= link_to 'Cancel', admin_projects_path, class: 'btn btn-primary'  %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  <div style="height: 160px;"></div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>

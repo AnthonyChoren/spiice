@@ -64,12 +64,12 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1 class="title text-white mb-4">Profile</h1>
-        <div class="mb-2 pb-2" style="display: flex; align-items: center; justify-content: flex-end;">
+        <h1 class="title text-white mb-2">Profile</h1>
+        <div class="mb-1 pb-1" style="display: flex; align-items: center; justify-content: flex-end;">
           <div>
             <% if @user == current_user %>
-              <%= link_to "Edit profile", edit_user_registration_path, class: 'text-white btn-primary2', style: 'margin-right: 8px;' %>
-              <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'text-white btn-primary2' %>
+              <%= link_to "Edit profile", edit_user_registration_path, class: 'easy-btn', style: 'margin-right: 8px;' %>
+              <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'easy-btn' %>
             <% end %>
           </div>
         </div>
@@ -103,16 +103,29 @@
         </div>
       </div>
     <% end %>
-      <div class="row mt-1">
-          <ul class="list">
-            <h5>My projects</h5>
-              <% @user.projects.each do |project| %>
-                <div class="card-body d-flex justify-content-start w-100">
-                  <li> <%= link_to project.title , project_path(project), class: "btn btn-primary3" %></li>
-                </div>
-              <% end %>
-          </ul>
+    <div class="row">
+      <div class="col mt-3">
+          <div>
+            <h5 class="medium-title">My projects</h5>
+          </div>
         </div>
       </div>
-    </div>
+    <% @user.projects.each do |project| %>
+    <%= link_to project_path(project) do %>
+      <div class="row mt-1 projects-card" style="color: #8C8C95">
+        <div class="column">
+          <% if project.user.photo.attached? %>
+            <%= cl_image_tag project.user.photo.key, alt: "alttext", class: 'projects-card-img' %>
+          <% else %>
+            <%= image_tag "spiice.jpg", class: 'projects-card-img' %>
+          <% end %>
+        </div>
+        <div class="column">
+          <p class="projects-card-text"><%= project.description %></p>
+          <h4 class="projects-card-title"><%= project.title %></h4>
+          <p class="projects-card-price"><%= project.price %>$</p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>

@@ -16,8 +16,8 @@
   </div>
   <div class="row">
     <div class="col m-3">
-        <%= simple_form_for [@project], url: admin_project_path, method: :patch do |f| %>
-        <%= f.error_notification %>
+      <%= simple_form_for [@project], url: admin_project_path, method: :patch do |f| %>
+      <%= f.error_notification %>
 
         <div class="form-inputs text-white">
           <%= f.input :title,
@@ -37,20 +37,12 @@
                       required: true,
                       input_html: { autocomplete: "deadline" } %>
         </div>
-
         <div class="form-actions">
           <%= f.button :submit, "Update", class: "btn btn-primary" %>
           <%= link_to 'Cancel', project_path, class: 'btn btn-primary'  %>
         </div>
       <% end %>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
       </div>
-  </div>
-
-
-
-
+    </div>
+  <div style="height: 160px;"></div>
+</div>
