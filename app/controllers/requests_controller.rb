@@ -46,6 +46,8 @@ class RequestsController < ApplicationController
 
   def update
     set_request
+    @project = @request.project
+    @project.update(accepted: true)
     @request.update(status: 1, seen: false)
     @request.project.requests.where(status: 0).each do |request|
       request.update(status: 2)

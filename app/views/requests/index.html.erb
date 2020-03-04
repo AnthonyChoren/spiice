@@ -33,16 +33,23 @@
                 <p><strong>Contact:</strong><br/><%= request.user.email %></p>
               </div> -->
               <div class="row">
-                <div class="col-6 request-card-choice request-card-choice-accept accept">
-                  <%= link_to edit_request_path(request) do %>
-                    <p>Accept</p>
+                  <% if request.status == "accepted" %>
+                    <div class="col-6 request-card-choice request-card-choice-accept accept">
+                        <p>Accepted</p>
+                    </div>
+
+                  <% else %>
+                    <div class="col-6 request-card-choice request-card-choice-accept accept">
+                      <%= link_to edit_request_path(request) do %>
+                        <p>Accept</p>
+                      <% end %>
+                    </div>
+                    <div class="col-6 request-card-choice request-card-choice-decline decline">
+                      <%= link_to request_refuse_path(request, request: { request_id: request.id, decision: 'rejection' }), data: { confirm: 'Are you sure?'}, method: :patch do %>
+                        <p>Decline</p>
+                      <% end %>
+                    </div>
                   <% end %>
-                </div>
-                <div class="col-6 request-card-choice request-card-choice-decline decline">
-                  <%= link_to request_refuse_path(request, request: { request_id: request.id, decision: 'rejection' }), data: { confirm: 'Are you sure?'}, method: :patch do %>
-                    <p>Decline</p>
-                  <% end %>
-                </div>
               </div>
             </div>
           <% end %>
