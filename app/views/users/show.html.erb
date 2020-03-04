@@ -79,7 +79,7 @@
       </div>
     </div>
   </div>
-  <div class="container ecran-blanc" style="height: 100vh;">
+  <div class="container ecran-blanc" style="height: 150vh;">
     <div class="row mt-4">
       <div class="col mt-4">
         <div class="d-flex">
@@ -115,7 +115,7 @@
       </div>
     <% @user.projects.each do |project| %>
     <%= link_to project_path(project) do %>
-      <div class="row mt-1 projects-card" style="color: #8C8C95">
+      <div class="row mt-1 projects-card mb-3" style="color: #8C8C95">
         <div class="column">
           <% if project.user.photo.attached? %>
             <%= cl_image_tag project.user.photo.key, alt: "alttext", class: 'projects-card-img' %>
