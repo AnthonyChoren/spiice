@@ -17,8 +17,14 @@
     <% if current_user.present? %>
       <% if current_user.role == "client" %>
         <%= render 'shared/menu_admin' %>
+          <%# if current_user.propositions.where(visited: false).count == 0 %>
+            <%#= render 'badge' %>
+          <%# end %>
       <% else %>
         <%= render 'shared/menu_designer' %>
+        <%# if current_user.propositions.visited == false %>
+        <%#= render 'badge' %>
+        <%# end %>
       <% end %>
     <% end %>
     <%= yield %>
