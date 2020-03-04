@@ -1,84 +1,79 @@
-<div class="container bg-primary" style= "height: 100vh;">
-  <div class="container">
-    <div class="row">
-      <div class="col mb-3 mt-4">
-        <% if current_user.role == "client" %>
-          <%= link_to admin_projects_path do  %>
-            <div class="row ml-1 mt-2">
-              <i class="ri-arrow-left-line back-icon"></i>
-              <h4 style="margin-top: 10px; margin-left: 8px;">Back</h4>
-            </div>
-          <% end %>
-        <% else %>
-          <%= link_to projects_path do  %>
-            <div class="row ml-1 mt-2">
-              <i class="ri-arrow-left-line back-icon"></i>
-              <h4 style="margin-top: 10px; margin-left: 8px;">Back</h4>
-            </div>
-          <% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col mb-3 mt-3 ml-2">
+      <% if current_user.role == "client" %>
+        <%= link_to admin_projects_path do  %>
+          <div class="row mt-2">
+            <i class="ri-arrow-left-line back-icon" style="color: white;"></i>
+            <h4 style="margin-top: 10px; margin-left: 8px; color: white;">Back</h4>
+          </div>
         <% end %>
-      </div>
+      <% else %>
+        <%= link_to projects_path do  %>
+          <div class="row ml-1 mt-2">
+            <i class="ri-arrow-left-line back-icon"></i>
+            <h4 style="margin-top: 10px; margin-left: 8px;">Back</h4>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
-
-  <!-- DESCRIPTION DU PROJET  -->
-
-  <div class="container">
-    <div class="row">
-      <div  class="col">
-        <div class="projects-card">
-          <% if @project.user.photo.attached? %>
-            <div class="container" style="display: flex; justify-content:center; padding-top: 16px;">
-              <%= cl_image_tag @project.user.photo.key, alt: "alttext", class: 'projects-card-img' %>
-            </div>
-          <% else %>
-            <div class="container" style="display: flex; justify-content:center; padding-top: 16px;">
-              <%= image_tag "spiice.jpg", class: 'projects-card-img-big' %>
-            </div>
-          <% end %>
-          <div>
-            <h4 class="projects-card-title" style="text-align: center; margin-top: 24px; margin-bottom: 24px;"><%= @project.title %></h4>
-            <div style="padding-left:16px;" >
-              <p class="projects-card-text"><strong>Brief:</strong> <%= @project.description %></p>
-              <p class="projects-card-text"><strong>Start:</strong> <%= @project.start %></p>
-              <p class="projects-card-text"><strong>Deadline:</strong> <%= @project.deadline %></p>
-              <p class="projects-card-price" style="margin-top: 24px; padding-bottom: 24px; " >Budget: <%= @project.price %>$</p>
-                <% if current_user.role == "designer"%>
-            <!-- plus: just show when the request is accepted -->
-                <p class="card-text">Contact the client:
-                <%= @project.user.first_name %> <%= @project.user.last_name %>
-                <%= @project.user.email %>
-                </p>
-              <% end %>
-            </div>
+</div>
+<!-- DESCRIPTION DU PROJET  -->
+<div class="container">
+  <div class="row">
+    <div  class="col">
+      <div class="projects-card">
+        <% if @project.user.photo.attached? %>
+          <div class="container" style="display: flex; justify-content:center; padding-top: 16px;">
+            <%= cl_image_tag @project.user.photo.key, alt: "alttext", class: 'projects-card-img' %>
+          </div>
+        <% else %>
+          <div class="container" style="display: flex; justify-content:center; padding-top: 16px;">
+            <%= image_tag "spiice.jpg", class: 'projects-card-img-big' %>
+          </div>
+        <% end %>
+        <div>
+          <h4 class="projects-card-title" style="text-align: center; margin-top: 24px; margin-bottom: 24px;"><%= @project.title %></h4>
+          <div style="padding-left:16px;" >
+            <p class="projects-card-text"><strong>Brief:</strong> <%= @project.description %></p>
+            <p class="projects-card-text"><strong>Start:</strong> <%= @project.start %></p>
+            <p class="projects-card-text"><strong>Deadline:</strong> <%= @project.deadline %></p>
+            <p class="projects-card-price" style="padding-bottom: 24px; " ><strong>Budget:</strong> <%= @project.price %>$</p>
+              <% if current_user.role == "designer"%>
+          <!-- plus: just show when the request is accepted -->
+              <p class="card-text">Contact the client:
+              <%= @project.user.first_name %> <%= @project.user.last_name %>
+              <%= @project.user.email %>
+              </p>
+            <% end %>
           </div>
         </div>
-
-  <!-- ACTIONS SELON LES ROLES  -->
-
-
-      <div>
-        <% if current_user.role == "client" %>
-          <div class="mt-4">
-            <%= link_to 'View the propositions', requests_path(@project), class: 'btn btn-primary2' %>
-          </div>
-          <div class="mt-4">
-            <%= link_to "Update", edit_admin_project_path(@project), class: "btn btn-primary3"%>
-          </div>
-            <% if current_user.id = @project.user.id %>
-            <div class="mt-4">
-              <%= link_to "Cancel project", admin_project_path(@project),
-              method: :delete, data: { confirm: "Are you sure?" },
-              class: "btn btn-primary3"%>
-             <% end %>
-          </div>
-          <% else %>
-          <div class="mt-4">
-            <%= link_to "Make a request for this project", new_project_request_path(@project), class: "btn btn-primary2"%>
-          </div>
-        <% end %>
-
       </div>
+<!-- ACTIONS SELON LES ROLES  -->
+    <div>
+      <% if current_user.role == "client" %>
+        <div class="mt-4">
+          <%= link_to 'View the propositions', requests_path(@project), class: 'btn btn-primary2' %>
+        </div>
+        <div class="mt-4">
+          <%= link_to "Update", edit_admin_project_path(@project), class: "btn btn-primary3"%>
+        </div>
+          <% if current_user.id = @project.user.id %>
+          <div class="mt-4">
+            <%= link_to "Cancel project", admin_project_path(@project),
+            method: :delete, data: { confirm: "Are you sure?" },
+            class: "btn btn-primary3"%>
+           <% end %>
+        </div>
+        <% else %>
+        <div class="mt-4">
+          <%= link_to "Make a request for this project", new_project_request_path(@project), class: "btn btn-primary2"%>
+        </div>
+      <% end %>
     </div>
   </div>
+</div>
+<div style="height: 140px"></div>
 </div>

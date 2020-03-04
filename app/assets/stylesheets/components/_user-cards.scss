@@ -33,7 +33,6 @@
   padding: 8px;
   width: 96px;
   height: 96px;
-
 }
 
 .projects-card-text {
@@ -52,9 +51,8 @@
 
 .projects-card-price {
   font-size: 14px;
-  font-weight: bold;
   margin-left: 8px;
-  margin-top: 8px;
+  margin-top: 16px;
   margin-bottom: 16px;
 }
 
@@ -85,4 +83,10 @@
   border: 1px solid #4A4A4A;
   padding: 8px 24px;
   border-radius: 50px;
+}
+
+.update-title {
+  text-align: center;
+  color: white;
+  line-height: 160%;
 }
