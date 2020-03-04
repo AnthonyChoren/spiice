@@ -13,7 +13,7 @@
       </div>
       <div>
         <% if current_user.propositions.where(visited: nil).count > 0  %>
-          <span class='dot-request'><%= current_user.propositions.where(visited: nil).count %></span>
+          <span class='dot-request'><%= current_user.propositions.where(visited: nil).count %> </span>
         <% end %>
         <%= link_to requests_path do %>
           <i class="ri-discuss-line <%= 'active' if current_page?(requests_path) %>">

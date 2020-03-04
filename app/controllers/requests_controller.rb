@@ -10,6 +10,9 @@ class RequestsController < ApplicationController
         end
       else
         @requests = current_user.requests
+        @requests.each do |request|
+          request.update(seen: true)
+        end
     end
     #@projects = @requests.project
   end
@@ -43,7 +46,7 @@ class RequestsController < ApplicationController
 
   def update
     set_request
-    @request.update(status: 1)
+    @request.update(status: 1, seen: false)
     @request.project.requests.where(status: 0).each do |request|
       request.update(status: 2)
     end
