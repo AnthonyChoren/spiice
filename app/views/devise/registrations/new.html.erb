@@ -5,7 +5,7 @@
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
 
-          <div class="form-inputs mt-5">
+          <div class="form-inputs mt-5" style="color: white;">
             <%= f.input :first_name,
                         required: true,
                         autofocus: true,
@@ -30,6 +30,7 @@
             <%= f.input :role, as: :radio_buttons, collection: User.roles.keys %>
             <%= f.input :photo, as: :file %>
             <%= f.input :bio,
+                        as: :text,
                         required: false,
                         autofocus: true,
                         hint:'A little biography about you',
