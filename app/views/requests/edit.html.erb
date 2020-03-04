@@ -10,6 +10,11 @@
       </div>
       <hr>
       <%= simple_form_for @request do |f| %>
+          <%= f.input :answer,
+                input_html: { autocomplete: "message" },
+                required: true,
+                autofocus: true,
+                hint: 'One request per project'%>
       <%= f.submit "Yes, I accept the request", class: "btn btn-primary2" %>
       <% end %>
       <%= link_to "Cancel", requests_path, class: "btn btn-primary3"%>
