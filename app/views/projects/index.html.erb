@@ -8,15 +8,17 @@
     </div>
   </div>
   <div class="row">
+    <div class="col">
 <!-- search bar for designers -->
-    <%= form_tag projects_path, method: :get, class: 'form-project' do %>
-      <div class="col">
-        <%= text_field_tag :query, params[:query], class: "form-control form-project", placeholder: "Find a project" %>
-      </div>
-      <div class="col">
-        <%= submit_tag "Search", class: "btn btn-search" %>
-      </div>
-    <% end %>
+      <%= form_tag projects_path, method: :get, class: 'form-inline' do %>
+        <form class="form-inline">
+          <div class="form-group mx-sm-3 mb-2 search-form">
+            <%= text_field_tag :query, params[:query], class: "form-control search-input", placeholder: "Find a project" %>
+          </div>
+            <%= submit_tag "Submit", class: "btn btn-primary mb-2 search-btn" %>
+        </form>
+      <% end %>
+    </div>
 <!-- end of search bar for designers -->
   </div>
     <% @projects.each do |project| %>
