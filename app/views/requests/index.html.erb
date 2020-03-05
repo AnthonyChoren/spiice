@@ -51,9 +51,8 @@
         </div>
       </div>
     </div>
-
   <div style="height: 850px;"></div>
-    
+
 <!-- POUR LES DESIGNERS -->
 <% else %>
   <div class="container">
@@ -98,6 +97,25 @@
               <div class="request-card-text pl-4 pb-2">
                 <p>"<%= request.message %>"</p>
               </div>
+              <% if request.status == "accepted" %>
+                <div class="pb-2">
+                  <div class="request-card-email mb-3">
+                    <% if request.answer != nil %>
+                      <div class="mt-3">
+                        <div class="pb-2">
+                          <h5>Answer of <%= request.project.user.first_name %> <%= request.project.user.last_name %>:</h5>
+                          <p><em>"<%= request.answer %>"</em></p>
+                        </div>
+                        <div>
+                          <h5>Contact:</h5>
+                          <p><%= request.project.user.email %> | <%= request.project.user.phone_number %></p>
+                        </div>
+
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
             </div>
           <% end %>
         <% end %>
@@ -105,15 +123,4 @@
     </div>
   </div>
   <div style="height: 120px;"></div>
-<% end %>
-
-<% if request.status == "accepted" %>
-  <div class="request-card-email">
-    <% if request.answer != nil %>
-      <p>Answer of the client: "<%= request.answer %>"</p>
-    <% end %>
-  </div><div class="request-card-email pb-3">
-    <p><strong>Contact:</strong><br/><%= request.user.email %> | <%= request.project.user.phone_number %> </p>
-  </div>
-
 <% end %>
