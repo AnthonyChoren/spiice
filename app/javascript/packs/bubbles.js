@@ -4,6 +4,7 @@
  * @class Particles
  * @constructor
  */
+
 function Particles(){
   //particle colors
   this.colors = [
@@ -32,6 +33,7 @@ function Particles(){
   this.canvas = document.getElementById('canvas');
   this.ctx = this.canvas.getContext('2d');
 }
+
 
 /**
  * Initializes everything
@@ -101,6 +103,8 @@ Particles.prototype.createCircle = function(){
  * @param  {number} i value from createCircle method
  * @method draw
  */
+
+
 Particles.prototype.draw = function(particle, i){
   var self = this,
       ctx = self.ctx;
@@ -186,6 +190,12 @@ Particles.prototype.clearCanvas = function(){
   this.ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-
+const canvaaas = document.getElementById('canvas');
+if (canvaaas) {
+  var particle = new Particles().init();
+} else {
+  var particle = "bonjour"
+}
 // go go go!
-var particle = new Particles().init();
+export default particle
+

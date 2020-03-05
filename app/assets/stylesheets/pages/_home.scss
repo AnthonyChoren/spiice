@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+
+
+
+#canvas {
+// opacity: 0.1;
+z-index: -10000;
+background-color: transparent;
+}
+
+.home-with-canvas {
+  position: absolute;
+  top: 0;
+}
