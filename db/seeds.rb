@@ -155,9 +155,9 @@ request10.project = n
 request10.user = benoit
 request10.save!
 
-request11 = Request.new(message: " Hi Donald, I'm Didier the king of new design wave on minitel. We have the same vision of modernity, contact me I speak Russian ! Greetings -- Didier")
+request11 = Request.new(message: " Hi Donald, I'm Didier the king of new design wave on minitel. We have the same vision of modernity, contact me I speak Russian ! Greetings -- Henri")
 request11.project = t
-request11.user = didier
+request11.user = henri
 request11.save!
 
 puts 'Finished!'

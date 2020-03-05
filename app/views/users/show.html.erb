@@ -76,13 +76,11 @@
       <div class="col">
         <h1 class="title text-white mb-2">Profile</h1>
         <div class="mb-1 pb-1" style="display: flex; align-items: center; justify-content: flex-end;">
-          <div>
             <% if @user == current_user %>
               <%= link_to "Edit profile", edit_user_registration_path, class: 'easy-btn', style: 'margin-right: 8px;' %>
               <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: 'easy-btn' %>
             <% end %>
           </div>
-        </div>
       </div>
     </div>
   </div>

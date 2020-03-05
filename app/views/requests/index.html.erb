@@ -27,7 +27,7 @@
               <div class="request-card-title pl-4">
                 <h4><%= request.user.first_name %> <%= request.user.last_name %></h4>
               </div>
-              <div class="request-card-text pl-4">
+              <div class="request-card-text pl-4" style="width: 360px;">
                 <p>"<%= request.message %>"</p>
               </div>
               <div class="row">
@@ -97,7 +97,7 @@
               <div class="request-card-title pl-4">
                 <h4><%= request.project.title %></h4>
               </div>
-              <div class="request-card-text pl-4 pb-2">
+              <div class="request-card-text pl-4 pb-2" style="width: 360px;">
                 <p>"<%= request.message %>"</p>
               </div>
               <% if request.status == "accepted" %>
