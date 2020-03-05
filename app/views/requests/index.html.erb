@@ -9,7 +9,7 @@
     <div class="row mt-3">
       <div class="col">
         <% @requests.where(status: 1).or(@requests.where(status: 0)).each do |request| %>
-          <h3 class="pb-2"> <%= link_to request.project.title, request_path(request), class: "text-white" %> </h3>
+          <h3 class="pb-2"> <%= link_to request.project.title, project_path(request.project), class: "text-white" %> </h3>
             <div class="request-card mb-4">
               <div class="row">
                 <div class="col-4 request-card-date m-4">
