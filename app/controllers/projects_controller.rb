@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy,] #destroy
 
   def index
-    @projects = Project.all.where(accepted: nil)
+    @projects = Project.all.where(accepted: nil).all.order("created_at DESC")
     if params[:query].present?
       @projects = @projects.search_project(params[:query])
     end

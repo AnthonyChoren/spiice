@@ -4,12 +4,12 @@ class RequestsController < ApplicationController
 
   def index
       if current_user.role == "client"
-        @requests = current_user.propositions
+        @requests = current_user.propositions.all.order("created_at DESC")
         @requests.each do |request|
           request.update(visited: true)
         end
       else
-        @requests = current_user.requests
+        @requests = current_user.requests.all.order("created_at DESC")
         @requests.each do |request|
           request.update(seen: true)
         end
