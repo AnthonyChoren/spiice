@@ -124,7 +124,7 @@
           <% end %>
         </div>
         <div class="column">
-          <p class="projects-card-text"><%= project.description %></p>
+          <p class="projects-card-text"><%= project.description.first(40)... %></p>
           <h4 class="projects-card-title"><%= project.title %></h4>
           <p class="projects-card-price"><%= project.price %>$</p>
         </div>
