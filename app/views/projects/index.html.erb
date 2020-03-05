@@ -31,9 +31,9 @@
               <%= image_tag "spiice.jpg", class: 'projects-card-img' %>
             <% end %>
           </div>
-          <div class="column">
-            <p class="projects-card-text"><%= project.description.first(40)... %></p>
+          <div class="column" style="width: 290px;">
             <h4 class="projects-card-title"><%= project.title %></h4>
+            <p class="projects-card-text"><%= project.description.first(80)... %></p>
             <p class="projects-card-price"><%= project.price %>$</p>
           </div>
         </div>
