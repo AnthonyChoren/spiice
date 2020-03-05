@@ -66,40 +66,41 @@
       <div class="col">
         <% if current_user.role == "designer" %>
           <% @requests.where(status: 1).or(@requests.where(status: 0)).each do |request| %>
-          <%= link_to project_path(project) do %>
-            <div class="request-card mb-4">
-              <div class="row">
-                <div class="col-4 request-card-date m-4">
-                  <p><%= request.created_at.strftime("%b %d, %Y") %></p>
-                </div>
-                <div class="col-4 m-4">
-                  <% if current_user.role == "designer" %>
-                    <% if request.status == "accepted"  %>
-                      <div class="col">
-                        <p class="choice-accept choice"><%= request.status.upcase %></p>
-                      </div>
-                    <% elsif request.status == "refused" %>
-                      <div class="col">
-                        <p class="choice-decline choice"><%= request.status.upcase %></p>
-                      </div>
-                    <% else %>
-                      <div class="col">
-                        <p class="choice-pending choice"><%= request.status.upcase %></p>
-                      </div>
+            <%= link_to project_path(request.project) do %>
+              <div class="request-card mb-4">
+                <div class="row">
+                  <div class="col-4 request-card-date m-4">
+                    <p><%= request.created_at.strftime("%b %d, %Y") %></p>
+                  </div>
+                  <div class="col-4 m-4">
+                    <% if current_user.role == "designer" %>
+                      <% if request.status == "accepted"  %>
+                        <div class="col">
+                          <p class="choice-accept choice"><%= request.status.upcase %></p>
+                        </div>
+                      <% elsif request.status == "refused" %>
+                        <div class="col">
+                          <p class="choice-decline choice"><%= request.status.upcase %></p>
+                        </div>
+                      <% else %>
+                        <div class="col">
+                          <p class="choice-pending choice"><%= request.status.upcase %></p>
+                        </div>
+                      <% end %>
                     <% end %>
-                  <% end %>
+                  </div>
+                </div>
+                <div class="request-card-upper-text pt-1 pl-4">
+                  <p><%= "#{request.project.user.first_name} #{request.project.user.last_name}" %></p>
+                </div>
+                <div class="request-card-title pl-4">
+                  <h4><%= request.project.title %></h4>
+                </div>
+                <div class="request-card-text pl-4 pb-2">
+                  <p>"<%= request.message %>"</p>
                 </div>
               </div>
-              <div class="request-card-upper-text pt-1 pl-4">
-                <p><%= "#{request.project.user.first_name} #{request.project.user.last_name}" %></p>
-              </div>
-              <div class="request-card-title pl-4">
-                <h4><%= request.project.title %></h4>
-              </div>
-              <div class="request-card-text pl-4 pb-2">
-                <p>"<%= request.message %>"</p>
-              </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>
