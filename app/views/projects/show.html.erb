@@ -55,7 +55,7 @@
             <%= link_to 'Responsible designer', user_path(@project.requests.find_by(status: "accepted").user), class: "btn btn-primary2" %>
           </div>
         <% end %>
-        <div class="mt-4">
+        <div class="m-4">
           <%= link_to "Update", edit_admin_project_path(@project), class: "btn btn-primary3"%>
         </div>
           <% if current_user.id = @project.user.id %>
