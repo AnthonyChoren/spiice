@@ -1,18 +1,22 @@
+<div class="container mt-5 pt-5">
+  <div class="row mt-5 pt-5">
+    <div class="col mt-5 pt-3">
+      <%= simple_form_for [@request], url: project_requests_path, method: :post do |f| %>
+        <%= f.error_notification %>
 
-<div class="m-3">
-  <%= simple_form_for [@request], url: project_requests_path, method: :post do |f| %>
-  <%= f.error_notification %>
+        <div class="form-inputs text-white">
+          <%= f.input :message,
+                      input_html: { autocomplete: "message" },
+                      required: true,
+                      autofocus: true,
+                      hint: 'One request per project'%>
+        </div>
 
-  <div class="form-inputs">
-    <%= f.input :message,
-                input_html: { autocomplete: "message" },
-                required: true,
-                autofocus: true,
-                hint: 'One request per project'%>
+        <div class="form-actions">
+          <%= f.button :submit, "Make a request for the project", class: "btn btn-primary2 mt-5" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Make a request for the project", class: "btn btn-primary" %>
-  </div>
-<% end %>
 </div>
+
