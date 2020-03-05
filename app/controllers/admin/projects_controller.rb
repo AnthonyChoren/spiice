@@ -3,7 +3,7 @@ class Admin::ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :set_project, only: [:edit, :update, :destroy]
   def index
-    @projects = Project.all.where(user: current_user)
+    @projects = Project.all.where(user: current_user).all.order("created_at DESC")
   end
 
   def new
