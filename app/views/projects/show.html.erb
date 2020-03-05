@@ -46,10 +46,10 @@
 <!-- ACTIONS SELON LES ROLES  -->
     <div>
       <% if current_user.role == "client" %>
-        <div class="mt-4">
+        <div class="m-4">
           <%= link_to 'View the propositions', requests_path(@project), class: 'btn btn-primary2' %>
         </div>
-        <div class="mt-4">
+        <div class="m-4">
           <%= link_to "Update", edit_admin_project_path(@project), class: "btn btn-primary3"%>
         </div>
           <% if current_user.id = @project.user.id %>
