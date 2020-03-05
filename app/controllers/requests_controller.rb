@@ -49,6 +49,7 @@ class RequestsController < ApplicationController
     @project = @request.project
     @project.update(accepted: true)
     @request.update(status: 1, seen: false)
+    @request.update(request_params)
     @request.project.requests.where(status: 0).each do |request|
       request.update(status: 2)
     end
@@ -93,7 +94,7 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:message, :status)
+    params.require(:request).permit(:message, :status, :answer)
   end
 end
 

@@ -51,8 +51,9 @@
         </div>
       </div>
     </div>
-  <div style="height: 120px;"></div>
 
+  <div style="height: 850px;"></div>
+    
 <!-- POUR LES DESIGNERS -->
 <% else %>
   <div class="container">
@@ -94,7 +95,7 @@
               <div class="request-card-title pl-4">
                 <h4><%= request.project.title %></h4>
               </div>
-              <div class="request-card-text pl-4 pb-4">
+              <div class="request-card-text pl-4 pb-2">
                 <p>"<%= request.message %>"</p>
               </div>
             </div>
@@ -104,4 +105,15 @@
     </div>
   </div>
   <div style="height: 120px;"></div>
+<% end %>
+
+<% if request.status == "accepted" %>
+  <div class="request-card-email">
+    <% if request.answer != nil %>
+      <p>Answer of the client: "<%= request.answer %>"</p>
+    <% end %>
+  </div><div class="request-card-email pb-3">
+    <p><strong>Contact:</strong><br/><%= request.user.email %> | <%= request.project.user.phone_number %> </p>
+  </div>
+
 <% end %>

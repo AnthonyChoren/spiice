@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_132519) do
+ActiveRecord::Schema.define(version: 2020_03_04_150628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_132519) do
     t.string "message"
     t.boolean "visited"
     t.boolean "seen"
+    t.string "answer"
     t.index ["project_id"], name: "index_requests_on_project_id"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
