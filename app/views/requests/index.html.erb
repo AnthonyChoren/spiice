@@ -66,6 +66,7 @@
       <div class="col">
         <% if current_user.role == "designer" %>
           <% @requests.where(status: 1).or(@requests.where(status: 0)).each do |request| %>
+          <%= link_to project_path(project) do %>
             <div class="request-card mb-4">
               <div class="row">
                 <div class="col-4 request-card-date m-4">

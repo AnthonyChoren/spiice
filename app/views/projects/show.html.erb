@@ -67,9 +67,11 @@
            <% end %>
         </div>
         <% else %>
-        <div class="mt-4">
-          <%= link_to "Make a request for this project", new_project_request_path(@project), class: "btn btn-primary2"%>
-        </div>
+          <% if @project.accepted != true %>
+          <div class="mt-4">
+            <%= link_to "Make a request for this project", new_project_request_path(@project), class: "btn btn-primary2"%>
+          </div>
+          <% end %>
       <% end %>
     </div>
   </div>
