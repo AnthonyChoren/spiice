@@ -40,13 +40,6 @@
             <p class="projects-card-text"><strong>Start:</strong> <%= @project.start %></p>
             <p class="projects-card-text"><strong>Deadline:</strong> <%= @project.deadline %></p>
             <p class="projects-card-price" style="padding-bottom: 24px; " ><strong>Budget:</strong> <%= @project.price %>$</p>
-              <% if current_user.role == "designer"%>
-          <!-- plus: just show when the request is accepted -->
-              <p class="card-text">Contact the client:
-              <%= @project.user.first_name %> <%= @project.user.last_name %>
-              <%= @project.user.email %>
-              </p>
-            <% end %>
           </div>
         </div>
       </div>
@@ -54,11 +47,11 @@
     <div>
       <% if current_user.role == "client" %>
         <% if @project.accepted != true %>
-          <div class="mt-4">
+          <div class="m-4">
             <%= link_to 'View the propositions', requests_path(@project), class: 'btn btn-primary2' %>
           </div>
         <% else %>
-          <div class="mt-4">
+          <div class="m-4">
             <%= link_to 'Responsible designer', user_path(@project.requests.find_by(status: "accepted").user), class: "btn btn-primary2" %>
           </div>
         <% end %>

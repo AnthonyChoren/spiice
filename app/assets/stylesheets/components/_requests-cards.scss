@@ -43,6 +43,11 @@
   text-align: center;
   color: #001D2B;
   font-size: 16px;
+  background-color: #FEEBEB;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 24px;
+  height: 100%;
 }
 
 .request-card-choice {
@@ -71,9 +76,9 @@
   border:2px solid #9b5355;
 }
 .accept p {
-  background-color: #ee8f66;
-  color: white;
-  border:2px solid #ee8f66;
+  background-color: #C8E1D1;
+  color: #048444;
+  border:2px solid #C8E1D1;
 }
 
 .decline a p {
@@ -95,19 +100,26 @@
 }
 
 .choice-pending {
-  color: #565669;
+  // color: #565669;
+  color: #545454;
+  background-color: #D8D8D8;
   font-weight: 500;
-  border: 2px dashed #565669;
+  // border: 2px dashed #565669;
 }
 
 .choice-accept {
-  color: green;
+  // color: #048444;
+  background-color: #C8E1D1;
+  color: #048444;
   font-weight: 500;
-  border: 2px dashed green;
+  // border: 2px dashed green;
 }
 
 .choice-decline {
-  color: red;
+  // color: red;
+  color: #FC0404;
+  background-color: #E8CDCD;
   font-weight: 500;
-  border: 2px solid red;
+  font-size: 12px;
+  // border: 2px solid red;
 }

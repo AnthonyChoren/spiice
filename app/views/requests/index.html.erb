@@ -53,7 +53,6 @@
         </div>
       </div>
     </div>
-
   <div style="height: 850px;"></div>
 
 <!-- POUR LES DESIGNERS -->
@@ -102,6 +101,34 @@
                   <p>"<%= request.message %>"</p>
                 </div>
               </div>
+              <div class="request-card-upper-text pt-1 pl-4">
+                <p><%= "#{request.project.user.first_name} #{request.project.user.last_name}" %></p>
+              </div>
+              <div class="request-card-title pl-4">
+                <h4><%= request.project.title %></h4>
+              </div>
+              <div class="request-card-text pl-4 pb-2">
+                <p>"<%= request.message %>"</p>
+              </div>
+              <% if request.status == "accepted" %>
+                <div class="pb-2">
+                  <div class="request-card-email mb-3">
+                    <% if request.answer != nil %>
+                      <div class="mt-3">
+                        <div class="pb-2">
+                          <h5>Answer of <%= request.project.user.first_name %> <%= request.project.user.last_name %>:</h5>
+                          <p><em>"<%= request.answer %>"</em></p>
+                        </div>
+                        <div>
+                          <h5>Contact:</h5>
+                          <p><%= request.project.user.email %> | <%= request.project.user.phone_number %></p>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
             <% end %>
           <% end %>
         <% end %>
@@ -110,4 +137,3 @@
   </div>
   <div style="height: 120px;"></div>
 <% end %>
-
