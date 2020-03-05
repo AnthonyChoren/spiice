@@ -18,7 +18,7 @@ class RequestsController < ApplicationController
   end
 
   def show
-    @request = Request.find(params[:id])
+    redirect_to requests_path
   end
 
   def new
