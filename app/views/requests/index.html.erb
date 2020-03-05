@@ -9,7 +9,7 @@
     <div class="row mt-3">
       <div class="col">
         <% @requests.where(status: 1).or(@requests.where(status: 0)).each do |request| %>
-          <h3 class="pb-2"> <%= link_to request.project.title, request_path(request), class: "text-white" %> </h3>
+          <h3 class="pb-2"> <%= link_to request.project.title, project_path(request.project), class: "text-white" %> </h3>
             <div class="request-card mb-4">
               <div class="row">
                 <div class="col-4 request-card-date m-4">
@@ -19,9 +19,11 @@
                   <%= link_to "View profil", user_path(request.user), class: "request-card-button" %>
                 </div>
               </div>
-              <div class="request-card-upper-text pt-1 pl-4">
-                <p><%= request.project.title %></p>
-              </div>
+              <%= link_to project_path(request.project) do %>
+                <div class="request-card-upper-text pt-1 pl-4">
+                  <p><%= request.project.title %></p>
+                </div>
+              <% end %>
               <div class="request-card-title pl-4">
                 <h4><%= request.user.first_name %> <%= request.user.last_name %></h4>
               </div>
@@ -65,27 +67,38 @@
       <div class="col">
         <% if current_user.role == "designer" %>
           <% @requests.where(status: 1).or(@requests.where(status: 0)).each do |request| %>
-            <div class="request-card mb-4">
-              <div class="row">
-                <div class="col-4 request-card-date m-4">
-                  <p><%= request.created_at.strftime("%b %d, %Y") %></p>
-                </div>
-                <div class="col-4 m-4">
-                  <% if current_user.role == "designer" %>
-                    <% if request.status == "accepted"  %>
-                      <div class="col">
-                        <p class="choice-accept choice"><%= request.status.upcase %></p>
-                      </div>
-                    <% elsif request.status == "refused" %>
-                      <div class="col">
-                        <p class="choice-decline choice"><%= request.status.upcase %></p>
-                      </div>
-                    <% else %>
-                      <div class="col">
-                        <p class="choice-pending choice"><%= request.status.upcase %></p>
-                      </div>
+            <%= link_to project_path(request.project) do %>
+              <div class="request-card mb-4">
+                <div class="row">
+                  <div class="col-4 request-card-date m-4">
+                    <p><%= request.created_at.strftime("%b %d, %Y") %></p>
+                  </div>
+                  <div class="col-4 m-4">
+                    <% if current_user.role == "designer" %>
+                      <% if request.status == "accepted"  %>
+                        <div class="col">
+                          <p class="choice-accept choice"><%= request.status.upcase %></p>
+                        </div>
+                      <% elsif request.status == "refused" %>
+                        <div class="col">
+                          <p class="choice-decline choice"><%= request.status.upcase %></p>
+                        </div>
+                      <% else %>
+                        <div class="col">
+                          <p class="choice-pending choice"><%= request.status.upcase %></p>
+                        </div>
+                      <% end %>
                     <% end %>
-                  <% end %>
+                  </div>
+                </div>
+                <div class="request-card-upper-text pt-1 pl-4">
+                  <p><%= "#{request.project.user.first_name} #{request.project.user.last_name}" %></p>
+                </div>
+                <div class="request-card-title pl-4">
+                  <h4><%= request.project.title %></h4>
+                </div>
+                <div class="request-card-text pl-4 pb-2">
+                  <p>"<%= request.message %>"</p>
                 </div>
               </div>
               <div class="request-card-upper-text pt-1 pl-4">
@@ -110,13 +123,13 @@
                           <h5>Contact:</h5>
                           <p><%= request.project.user.email %> | <%= request.project.user.phone_number %></p>
                         </div>
-
                       </div>
                     <% end %>
                   </div>
                 </div>
               <% end %>
             </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>

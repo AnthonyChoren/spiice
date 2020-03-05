@@ -1,8 +1,9 @@
+
 <!-- Not used anymore (all on requests#index) -->
-<div class="container bg-primary h-100">
+<!-- <div class="container bg-primary h-100">
   <div class="pl-2 pb-2 mt-2 d-flex justify-content-start align-items-center text-center">
     <a href="<%= requests_path %>" class="ri-arrow-left-circle-line back-icon"></a>
-    <%= link_to "Back", requests_path, class: "btn-back pl-1" %>
+      <%#= link_to :back, class: "btn-back pl-1" %>
   </div>
   <div class="container d-flex align-items-center" style="flex-direction: column ">
     <div class="card-project user-card h-100 w-100 m-2">
@@ -10,18 +11,18 @@
         <p class="card-title"> <strong> Request for "<%= @request.project.title %>"</strong> </p>
         <p class="card-text">"<%= @request.message %>"</p>
         <hr>
-      <% if current_user.role == "client" %>
+      <#% if current_user.role == "client" %>
         <p class="card-text"><em>Request by <%= @request.user.first_name %> <%= @request.user.last_name %></em> </p>
         <p class="card-text"><em>Contact: <%= @request.user.email %></em> </p>
-        <%= link_to "Profile of designer", user_path(@request.user), class: "btn btn-primary"%>
-        <% else %>
-        <%= link_to "View project", project_path(@request.project), class: "btn btn-primary2 w-100"%>
-      <% end %>
+        <#%= link_to "Profile of designer", user_path(@request.user), class: "btn btn-primary"%>
+        <#% else %>
+        <%#= link_to "View project", project_path(@request.project), class: "btn btn-primary2 w-100"%>
+      <#% end %>
       </div>
     </div>
   </div>
 </div>
 <div style="height: 120px;">
   </div>
-</div>
+</div> -->
 
