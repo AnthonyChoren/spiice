@@ -18,7 +18,7 @@ class RequestsController < ApplicationController
   end
 
   def show
-    @request = Request.find(params[:id])
+    redirect_to requests_path
   end
 
   def new
@@ -47,6 +47,7 @@ class RequestsController < ApplicationController
   def update
     set_request
     @project = @request.project
+    @project.update(progress: "accepted")
     @project.update(accepted: true)
     @request.update(status: 1, seen: false)
     @request.update(request_params)
