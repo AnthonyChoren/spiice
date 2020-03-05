@@ -2,16 +2,14 @@
 <% if @user.role == 'designer' %>
  <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col mb-3 mt-3 ml-2">
         <% if @user != current_user %>
-          <div class="col mb-3 mt-3 ml-0 d-flex" style="flex-direction: row ">
-            <%= link_to :back do %>
-              <div class="d-flex" style="flex-direction: row">
-                <i class="ri-arrow-left-line back-icon" style="color: white;"></i>
-                <h4 style="margin-top: 10px; margin-left: 8px; color: white;">Back</h4>
-              </div>
-            <% end %>
-          </div>
+          <%= link_to :back do %>
+            <div class="row mt-2">
+              <i class="ri-arrow-left-line back-icon" style="color: white;"></i>
+              <h4 style="margin-top: 10px; margin-left: 8px; color: white;">Back</h4>
+            </div>
+          <% end %>
         <% end %>
         <h1 class="title text-white mb-2">Profile</h1>
         <div class="mb-1 pb-1" style="display: flex; align-items: center; justify-content: flex-end;">
