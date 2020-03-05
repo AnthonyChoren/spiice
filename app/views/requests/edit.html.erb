@@ -3,13 +3,17 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 offset-sm-2">
+    <div class="col-sm-8 offset-sm-2 text-white">
       <p>Are you sure you want to accept the request of <%= @request.user.first_name %> <%= @request.user.last_name %>?</p>
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-end text-white">
         <%= link_to "Profile of designer", user_path(@request.user), class: "btn btn-primary"%>
       </div>
       <hr>
       <%= simple_form_for @request do |f| %>
+          <%= f.input :answer,
+                input_html: { autocomplete: "answer" },
+                required: true,
+                autofocus: true %>
       <%= f.submit "Yes, I accept the request", class: "btn btn-primary2" %>
       <% end %>
       <%= link_to "Cancel", requests_path, class: "btn btn-primary3"%>
