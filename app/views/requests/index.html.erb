@@ -19,9 +19,11 @@
                   <%= link_to "View profil", user_path(request.user), class: "request-card-button" %>
                 </div>
               </div>
-              <div class="request-card-upper-text pt-1 pl-4">
-                <p><%= request.project.title %></p>
-              </div>
+              <%= link_to project_path(request.project) do %>
+                <div class="request-card-upper-text pt-1 pl-4">
+                  <p><%= request.project.title %></p>
+                </div>
+              <% end %>
               <div class="request-card-title pl-4">
                 <h4><%= request.user.first_name %> <%= request.user.last_name %></h4>
               </div>
